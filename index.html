@@ -332,9 +332,9 @@
             </div>
             <p class="mt-3 max-w-md text-[1.05rem] leading-relaxed text-muted">The same instant-pricing engine, tuned for a Texas roofing company — homeowners get a ballpark in about a minute. Instant ranges for replacement, repair, and gutters; a fast-callback intake for storm, hail, and insurance work.</p>
             <p class="mt-4 max-w-md text-[0.95rem] text-ink2">Live and interactive — try it in the panel, or open it full screen.</p>
-            <a href="/tools/roofing-quote/" target="_blank" rel="noopener" class="lnk mt-5">Open the live generator
+            <button type="button" data-quote-open class="lnk mt-5">Open the live generator
               <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+            </button>
           </div>
         </article>
 
@@ -577,6 +577,31 @@
         formMsg.innerHTML = 'Something went wrong — please email <a href="mailto:info@helloc5.com" class="lnk align-baseline">info@helloc5.com</a>.';
       }
     });
+
+    // Live-generator lightbox — opens the tool in an on-page modal (no new tab, no URL shown).
+    // Deferred to DOMContentLoaded because the modal markup follows this script in the DOM.
+    window.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('quoteModal');
+      if (!modal) return;
+      const frame = document.getElementById('quoteModalFrame');
+      const src = frame.getAttribute('data-src');
+      const open = () => { frame.src = src; modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; };
+      const close = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); frame.src = 'about:blank'; document.body.style.overflow = ''; };
+      document.querySelectorAll('[data-quote-open]').forEach((b) => b.addEventListener('click', open));
+      document.querySelectorAll('[data-quote-close]').forEach((b) => b.addEventListener('click', close));
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
+    });
   </script>
+
+  <!-- Live-generator lightbox -->
+  <div id="quoteModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-ink/80 p-4 sm:p-6" role="dialog" aria-modal="true" aria-label="Instant roofing quote">
+    <div class="relative w-full max-w-[940px]" style="height:min(88vh,900px)">
+      <button type="button" data-quote-close aria-label="Close" class="absolute -right-3 -top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-bg text-ink shadow-lg ring-1 ring-line transition hover:bg-panel">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <iframe id="quoteModalFrame" data-src="https://frontieragency.github.io/roofing-quote-embed/" class="h-full w-full rounded-2xl border-0 bg-bg shadow-2xl" title="Instant roofing quote — live demo" loading="lazy"></iframe>
+    </div>
+  </div>
 </body>
 </html>
