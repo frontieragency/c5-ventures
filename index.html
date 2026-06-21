@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C5 — AI-native venture studio</title>
+  <meta name="description" content="C5 is an AI-native venture studio. We deploy fleets of AI agents to design, build, and launch products that grow real businesses." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:      '#ffffff',
+            cream:   '#f5eee0',
+            panel:   '#f3f2ef',
+            panel2:  '#e9e8e3',
+            ink:     '#141414',
+            ink2:    '#3a3a38',
+            muted:   '#76746e',
+            line:    '#e4e3dd',
+            accent:  '#bf5b2e',
+            ansigreen: '#1f8a65',
+            ansired:   '#cf2d56',
+            iris:      '#8250df',
+            azure:     '#2f6bb0',
+          },
+          fontFamily: {
+            serif: ['EB Garamond', 'Iowan Old Style', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'Helvetica Neue', 'Arial', 'sans-serif'],
+            mono:  ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+          },
+          maxWidth: { content: '1100px', prose: '660px' },
+          borderRadius: { xl2: '14px' },
+        },
+      },
+    };
+  </script>
+
+  <!-- three.js (UMD) for the Dotted Surface animation -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label   { font-size: 0.875rem; color: #76746e; }
+    .mono    { font-family: 'JetBrains Mono', monospace; }
+
+    .lnk { color: #bf5b2e; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; transition: gap .2s ease, opacity .15s ease; }
+    .lnk:hover { gap: 7px; }
+    .lnk svg { transition: transform .2s cubic-bezier(.16,1,.3,1); }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px;
+           font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; transition: transform .18s cubic-bezier(.16,1,.3,1), background-color .18s ease, border-color .18s ease, color .18s ease; }
+    .btn:active { transform: translateY(0); }
+    .btn-dark  { background: #141414; color: #fff; }
+    .btn-dark:hover { background: #2a2a28; transform: translateY(-1px); }
+    .btn-ghost { background: #fff; color: #141414; border: 1px solid #e4e3dd; }
+    .btn-ghost:hover { border-color: #c9c8c1; background: #faf9f7; transform: translateY(-1px); }
+
+    a:focus-visible, button:focus-visible { outline: 2px solid #bf5b2e; outline-offset: 2px; border-radius: 6px; }
+
+    /* Browser-frame chrome for live previews */
+    .win { background: #fff; border: 1px solid #e4e3dd; border-radius: 12px; overflow: hidden;
+           box-shadow: 0 1px 2px rgba(20,20,20,.04), 0 24px 60px -28px rgba(20,20,20,.28); }
+    .win-bar { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border-bottom: 1px solid #efeee9; background: #faf9f7; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    /* Compact, scaled live-site previews (full desktop layout, sized to fit the viewport) */
+    .embed-viewport { position: relative; width: 100%; aspect-ratio: 1280 / 880; overflow: hidden; background: #0e1116; }
+    .embed-viewport--quote { aspect-ratio: 1280 / 740; }
+    .embed-frame { position: absolute; top: 0; left: 0; width: 1280px; height: 880px; border: 0; transform-origin: top left; }
+    .embed-frame--tall { height: 1600px; }
+
+    .dotted-surface canvas { display: block; }
+    .dotted-surface { -webkit-mask-image: radial-gradient(ellipse 72% 78% at 50% 46%, #000 48%, transparent 100%);
+                      mask-image: radial-gradient(ellipse 72% 78% at 50% 46%, #000 48%, transparent 100%); }
+
+    .hero-bg { background:
+        radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%),
+        radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%),
+        radial-gradient(80% 70% at 85% 20%, #e8e6f2 0%, transparent 55%),
+        linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+    .mobile-menu { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .3s cubic-bezier(.16,1,.3,1), opacity .25s ease; }
+    .mobile-menu > nav { overflow: hidden; min-height: 0; }
+    header.menu-open .mobile-menu { grid-template-rows: 1fr; opacity: 1; }
+    .ham path { transition: transform .25s ease, opacity .2s ease; transform-origin: center; }
+    header.menu-open .ham path:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    header.menu-open .ham path:nth-child(2) { opacity: 0; }
+    header.menu-open .ham path:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+    ::selection { background: #f0d9c8; color: #141414; }
+  </style>
+</head>
+
+<body class="bg-bg font-sans text-ink">
+
+  <!-- ============ NAV (cream, matches hero) ============ -->
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <div class="flex items-center gap-7">
+        <a href="#top" class="flex items-center text-lg font-semibold tracking-tight text-ink" aria-label="C5 home">C5</a>
+        <nav class="hidden items-center gap-6 md:flex">
+          <a href="#work" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Work</a>
+          <a href="#approach" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Approach</a>
+          <a href="#about" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">About</a>
+          <a href="#contact" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Contact</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="btn btn-dark hidden md:inline-flex">Start a project</a>
+        <button id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"
+                class="grid h-9 w-9 place-items-center rounded-lg text-ink transition-colors hover:bg-panel2 md:hidden">
+          <svg class="ham h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu md:hidden">
+      <nav class="border-t border-line bg-cream px-5 py-2">
+        <a href="#work" class="block py-3 text-[1.0625rem] text-ink">Work</a>
+        <a href="#approach" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Approach</a>
+        <a href="#about" class="block border-t border-line py-3 text-[1.0625rem] text-ink">About</a>
+        <a href="#contact" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Contact</a>
+        <div class="border-t border-line py-4">
+          <a href="#contact" class="btn btn-dark w-full">Start a project</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-20 pb-8 text-center sm:pt-24">
+      <p class="reveal label">AI-native venture studio</p>
+      <h1 class="reveal display mx-auto mt-4 max-w-3xl text-[2rem] text-ink sm:text-[2.9rem]">
+        We build revenue-generating software with AI agents
+      </h1>
+      <p class="reveal mx-auto mt-5 max-w-xl text-[1.05rem] text-ink2" style="transition-delay:.05s">
+        We design, build, and launch products that grow real businesses — and get them to market fast.
+      </p>
+      <div class="reveal mt-7 flex items-center justify-center gap-3" style="transition-delay:.1s">
+        <a href="#contact" class="btn btn-dark min-w-[200px]">Start a project</a>
+        <a href="#work" class="btn btn-ghost min-w-[200px]">See our work</a>
+      </div>
+
+      <!-- Dotted Surface — Three.js animated dot-wave (ported from the React component to vanilla JS) -->
+      <div id="dottedSurface" class="reveal dotted-surface relative mx-auto -mt-2 h-[240px] w-full max-w-4xl overflow-hidden sm:h-[300px]" style="transition-delay:.15s" aria-hidden="true"></div>
+    </div>
+
+    <!-- hero proof stats -->
+    <div class="mx-auto max-w-content px-5 pb-12">
+      <dl class="reveal grid grid-cols-2 gap-y-7 border-t border-line pt-9 text-center sm:grid-cols-4">
+        <div><dt class="display text-[1.9rem] text-ink">$93K</dt><dd class="label mt-0.5">Generated for a client, week one</dd></div>
+        <div><dt class="display text-[1.9rem] text-ink">10+ yrs</dt><dd class="label mt-0.5">Building and selling in Silicon Valley</dd></div>
+        <div><dt class="display text-[1.9rem] text-ink">+1,000</dt><dd class="label mt-0.5">Matchday Instagram views, week one</dd></div>
+        <div><dt class="display text-[1.9rem] text-ink">&lt;24 hrs</dt><dd class="label mt-0.5">To research, build, and go live</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ APPROACH BANNER ============ -->
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-20">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="reveal lg:col-span-5">
+          <p class="label">Software gets built differently now</p>
+          <h2 class="display mt-3 text-[1.9rem] text-ink sm:text-[2.4rem]">One operator. A fleet of agents. The output of a team.</h2>
+        </div>
+        <div class="reveal lg:col-span-6 lg:col-start-7" style="transition-delay:.05s">
+          <p class="text-[1.05rem] text-ink2">C5 deploys tens of AI agents in parallel to research, build, and ship what would normally take a full team — competitor analysis, building the product, wiring in live data, and standing up the automations that turn it into revenue.</p>
+          <p class="mt-4 text-[1.05rem] text-ink2">The result is software that ships fast and earns early, built without the headcount, the handoffs, or the wait.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE C5 METHOD ============ -->
+  <section id="approach" class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-20">
+      <div class="reveal max-w-prose">
+        <p class="label">The C5 method</p>
+        <h2 class="display mt-3 text-[1.9rem] text-ink sm:text-[2.4rem]">Five moves from idea to revenue.</h2>
+        <p class="mt-4 text-[1.05rem] text-ink2">Every build runs the same path — a repeatable loop from raw idea to live, money-making software.</p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <article class="reveal rounded-xl2 border border-line bg-panel p-5">
+          <span class="mono text-[0.8rem] text-accent">01</span>
+          <h3 class="display mt-3 text-[1.3rem] text-ink">Conceive</h3>
+          <p class="mt-2 text-[0.9rem] text-ink2">Agents run competitor analysis and find the wedge — the moat and the fastest path to revenue.</p>
+        </article>
+        <article class="reveal rounded-xl2 border border-line bg-panel p-5" style="transition-delay:.04s">
+          <span class="mono text-[0.8rem] text-accent">02</span>
+          <h3 class="display mt-3 text-[1.3rem] text-ink">Construct</h3>
+          <p class="mt-2 text-[0.9rem] text-ink2">We build the product end-to-end with a fleet of AI agents — not a backlog and a roadmap.</p>
+        </article>
+        <article class="reveal rounded-xl2 border border-line bg-panel p-5" style="transition-delay:.08s">
+          <span class="mono text-[0.8rem] text-accent">03</span>
+          <h3 class="display mt-3 text-[1.3rem] text-ink">Connect</h3>
+          <p class="mt-2 text-[0.9rem] text-ink2">Live data and automations wired in — game feeds, venue inventory, quotes, and call-catching.</p>
+        </article>
+        <article class="reveal rounded-xl2 border border-line bg-panel p-5" style="transition-delay:.12s">
+          <span class="mono text-[0.8rem] text-accent">04</span>
+          <h3 class="display mt-3 text-[1.3rem] text-ink">Convert</h3>
+          <p class="mt-2 text-[0.9rem] text-ink2">SEO pages, instant-quote tools, and 24/7 capture turn traffic into paying customers.</p>
+        </article>
+        <article class="reveal rounded-xl2 border border-line bg-panel p-5" style="transition-delay:.16s">
+          <span class="mono text-[0.8rem] text-accent">05</span>
+          <h3 class="display mt-3 text-[1.3rem] text-ink">Compound</h3>
+          <p class="mt-2 text-[0.9rem] text-ink2">We launch, measure, and scale — adding markets and features quickly.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-20">
+      <div class="reveal mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div class="max-w-prose">
+          <p class="label">Work</p>
+          <h2 class="display mt-3 text-[1.9rem] text-ink sm:text-[2.4rem]">Shipped, live, and earning.</h2>
+        </div>
+        <a href="#contact" class="lnk">Start your project <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="space-y-16 lg:space-y-20">
+
+        <!-- Matchday — text left, scaled live preview right -->
+        <article class="reveal grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <h3 class="text-[1.3rem] font-medium tracking-tight text-ink">Matchday</h3>
+              <span class="mono rounded-full border border-line px-2.5 py-0.5 text-[11px] text-muted">Sports &amp; live events</span>
+            </div>
+            <p class="mt-3 max-w-md text-[1.05rem] leading-relaxed text-muted">A five-market live-events platform for the 2026 World Cup. Live game data and real-time venue availability flow into each city's homepage, and a per-market Instagram engine drives where-to-watch revenue for partner venues.</p>
+            <a href="https://newjerseymatchday.com" target="_blank" rel="noopener" class="lnk mt-5">Open the live site
+              <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="win">
+            <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 text-[11px] text-muted">newjerseymatchday.com</span><span class="ml-auto flex items-center gap-1.5 text-[11px] text-ansigreen"><span class="h-1.5 w-1.5 rounded-full bg-ansigreen"></span>Live</span></div>
+            <div class="embed-viewport"><iframe class="embed-frame" src="https://newjerseymatchday.com" loading="lazy" title="New Jersey Matchday — live site"></iframe></div>
+          </div>
+        </article>
+
+        <!-- C5 Web Platform — scaled live preview left, text right (URL masked) -->
+        <article class="reveal grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div class="win lg:order-1">
+            <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 flex items-center gap-1.5 text-[11px] text-muted"><svg class="h-3 w-3" viewBox="0 0 16 16" fill="none"><path d="M4.5 7V5a3.5 3.5 0 017 0v2M3.5 7h9v6h-9z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>Instant quote generator</span><span class="ml-auto flex items-center gap-1.5 text-[11px] text-ansigreen"><span class="h-1.5 w-1.5 rounded-full bg-ansigreen"></span>Live</span></div>
+            <div class="embed-viewport embed-viewport--quote"><iframe class="embed-frame embed-frame--tall" data-offset="105" src="https://helloc5.com/quote/" loading="lazy" title="Instant quote generator — live demo"></iframe></div>
+          </div>
+          <div class="lg:order-2">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <h3 class="text-[1.3rem] font-medium tracking-tight text-ink">Instant Quote Generator</h3>
+              <span class="mono rounded-full border border-line px-2.5 py-0.5 text-[11px] text-muted">Home services</span>
+            </div>
+            <p class="mt-3 max-w-md text-[1.05rem] leading-relaxed text-muted">An instant-pricing tool for home-services companies. Visitors answer a few quick questions and get a real quote in about a minute — so you capture the lead before they call around. We built one for a client, and it generated $93K in its first week.</p>
+            <a href="https://helloc5.com/quote/" target="_blank" rel="noopener" class="lnk mt-5">Open the live generator
+              <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY C5 ============ -->
+  <section id="why" class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-20">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="reveal lg:col-span-4">
+          <p class="label">Why C5</p>
+          <h2 class="display mt-3 text-[1.9rem] text-ink sm:text-[2.4rem]">Built to ship — and to earn.</h2>
+          <p class="mt-4 text-[1.02rem] text-ink2">Speed is table stakes. The difference is craft, range, and a team that owns the whole thing.</p>
+        </div>
+        <div class="lg:col-span-7 lg:col-start-6">
+          <div class="grid gap-x-8 gap-y-9 sm:grid-cols-2">
+            <div class="reveal">
+              <h3 class="text-[1.02rem] font-medium text-ink">Craft, not just speed</h3>
+              <p class="mt-2 text-[0.95rem] text-ink2">Considered design and engineering — the standard we picked up at teams that obsess over it.</p>
+            </div>
+            <div class="reveal" style="transition-delay:.04s">
+              <h3 class="text-[1.02rem] font-medium text-ink">Agent fleets, not headcount</h3>
+              <p class="mt-2 text-[0.95rem] text-ink2">A small team moves like a big one — more product, shipped faster, without scaling up burn.</p>
+            </div>
+            <div class="reveal" style="transition-delay:.08s">
+              <h3 class="text-[1.02rem] font-medium text-ink">Revenue from week one</h3>
+              <p class="mt-2 text-[0.95rem] text-ink2">We build to earn early. A quote tool we shipped for a client generated $93K in its first week.</p>
+            </div>
+            <div class="reveal" style="transition-delay:.12s">
+              <h3 class="text-[1.02rem] font-medium text-ink">All under one roof</h3>
+              <p class="mt-2 text-[0.95rem] text-ink2">Strategy, design, build, integrations, and go-to-market under one roof — no handoffs, no agencies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-20">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="reveal lg:col-span-5">
+          <p class="label">About</p>
+          <h2 class="display mt-3 text-[1.9rem] text-ink sm:text-[2.4rem]">A decade of building in Silicon Valley.</h2>
+        </div>
+        <div class="reveal lg:col-span-6 lg:col-start-7" style="transition-delay:.05s">
+          <p class="text-[1.05rem] text-ink2">C5 comes out of more than ten years in Silicon Valley — building at early-stage startups and at enterprise companies that went on to exit.</p>
+          <p class="mt-4 text-[1.05rem] text-ink2">Our team comes from companies like Chartio (now Atlassian), Lever (now Employ), and Sqreen (now Datadog) — teams obsessed with design, engineering, and customer experience. We bring that same obsession to everything we ship — fast, well-crafted, and built with care.</p>
+          <a href="#contact" class="lnk mt-5">Get in touch <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section id="contact" class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-24 text-center">
+      <h2 class="reveal display text-[2.4rem] text-ink sm:text-[3rem]">Have something to build?</h2>
+      <p class="reveal mx-auto mt-4 max-w-xl text-[1.05rem] text-ink2" style="transition-delay:.05s">
+        Tell us what you want to ship. We'll come back with a plan to get it live — fast.
+      </p>
+      <form id="contactForm" action="https://formspree.io/f/xjgqbowj" method="POST" class="reveal mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row" style="transition-delay:.1s">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" required placeholder="you@company.com"
+               class="w-full rounded-full border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+        <input type="hidden" name="_subject" value="New project inquiry — C5" />
+        <button type="submit" class="btn btn-dark shrink-0 px-5 py-3">Start a project</button>
+      </form>
+      <p id="formMsg" class="mt-4 text-[0.9rem] text-ansigreen" hidden></p>
+      <p class="reveal mt-4 text-[0.85rem] text-muted" style="transition-delay:.15s">Or email <a href="mailto:info@helloc5.com" class="lnk align-baseline">info@helloc5.com</a></p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-14">
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div>
+          <h4 class="mono text-[0.78rem] uppercase tracking-wide text-muted">Studio</h4>
+          <ul class="mt-4 space-y-2.5 text-[0.92rem]">
+            <li><a href="#work" class="text-ink2 transition-colors hover:text-ink">Work</a></li>
+            <li><a href="#approach" class="text-ink2 transition-colors hover:text-ink">Approach</a></li>
+            <li><a href="#about" class="text-ink2 transition-colors hover:text-ink">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mono text-[0.78rem] uppercase tracking-wide text-muted">Products</h4>
+          <ul class="mt-4 space-y-2.5 text-[0.92rem]">
+            <li><a href="#work" class="text-ink2 transition-colors hover:text-ink">Matchday</a></li>
+            <li><a href="#work" class="text-ink2 transition-colors hover:text-ink">Instant Quote Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mono text-[0.78rem] uppercase tracking-wide text-muted">Company</h4>
+          <ul class="mt-4 space-y-2.5 text-[0.92rem]">
+            <li><a href="#about" class="text-ink2 transition-colors hover:text-ink">About</a></li>
+            <li><a href="#contact" class="text-ink2 transition-colors hover:text-ink">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mono text-[0.78rem] uppercase tracking-wide text-muted">Connect</h4>
+          <ul class="mt-4 space-y-2.5 text-[0.92rem]">
+            <li><a href="mailto:info@helloc5.com" class="text-ink2 transition-colors hover:text-ink">Email</a></li>
+            <!-- <li><a href="#" class="text-ink2 transition-colors hover:text-ink">LinkedIn</a></li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 flex items-center justify-between border-t border-line pt-6">
+        <div class="text-[0.95rem] font-semibold text-ink">C5</div>
+        <p class="text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('header');
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const setMenu = (open) => {
+      header.classList.toggle('menu-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    navToggle.addEventListener('click', () => setMenu(!header.classList.contains('menu-open')));
+    mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+    // ===== Dotted Surface (ported from the React/Three.js component to vanilla JS) =====
+    (function initDottedSurface() {
+      const container = document.getElementById('dottedSurface');
+      if (!container || typeof THREE === 'undefined') return;
+
+      const SEPARATION = 150, AMOUNTX = 40, AMOUNTY = 60;
+      let W = container.clientWidth || 1, H = container.clientHeight || 1;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, W / H, 1, 10000);
+      camera.position.set(0, 210, 1000);
+      camera.lookAt(0, -90, -300);
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(W, H);
+      renderer.setClearColor(0xffffff, 0);
+      container.appendChild(renderer.domElement);
+
+      const positions = [], colors = [];
+      const geometry = new THREE.BufferGeometry();
+      for (let ix = 0; ix < AMOUNTX; ix++) {
+        for (let iy = 0; iy < AMOUNTY; iy++) {
+          positions.push(ix * SEPARATION - (AMOUNTX * SEPARATION) / 2, 0, iy * SEPARATION - (AMOUNTY * SEPARATION) / 2);
+          colors.push(0, 0, 0); // black dots for the light theme
+        }
+      }
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({ size: 8, vertexColors: true, transparent: true, opacity: 0.8, sizeAttenuation: true });
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+
+      let count = 0;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function render() {
+        const pos = geometry.attributes.position.array;
+        let i = 0;
+        for (let ix = 0; ix < AMOUNTX; ix++) {
+          for (let iy = 0; iy < AMOUNTY; iy++) {
+            pos[i * 3 + 1] = Math.sin((ix + count) * 0.3) * 50 + Math.sin((iy + count) * 0.5) * 50;
+            i++;
+          }
+        }
+        geometry.attributes.position.needsUpdate = true;
+        renderer.render(scene, camera);
+      }
+      function animate() { requestAnimationFrame(animate); render(); count += 0.1; }
+      window.addEventListener('resize', () => {
+        W = container.clientWidth || 1; H = container.clientHeight || 1;
+        camera.aspect = W / H; camera.updateProjectionMatrix(); renderer.setSize(W, H);
+      });
+      if (reduceMotion) render(); else animate();
+    })();
+
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach((el) => io.observe(el));
+    const revealAll = () => reveals.forEach((el) => el.classList.add('in'));
+    if (document.readyState === 'complete') setTimeout(revealAll, 1200);
+    else window.addEventListener('load', () => setTimeout(revealAll, 1200));
+
+    // Scale the live-site previews to fit their (smaller) columns — shows full desktop layout, compact
+    const BASE = 1280;
+    function scaleEmbeds() {
+      document.querySelectorAll('.embed-frame').forEach((frame) => {
+        const vp = frame.parentElement;
+        if (!vp || !vp.clientWidth) return;
+        const s = vp.clientWidth / BASE;
+        const off = Number(frame.dataset.offset || 0);
+        frame.style.transform = 'scale(' + s + ') translateY(' + (-off) + 'px)';
+      });
+    }
+    scaleEmbeds();
+    window.addEventListener('resize', scaleEmbeds);
+    window.addEventListener('load', scaleEmbeds);
+    document.querySelectorAll('.embed-frame').forEach((f) => f.addEventListener('load', scaleEmbeds));
+    if (window.ResizeObserver) document.querySelectorAll('.embed-viewport').forEach((vp) => new ResizeObserver(scaleEmbeds).observe(vp));
+    [120, 400, 1200, 2500].forEach((t) => setTimeout(scaleEmbeds, t));
+
+    // Contact form → Formspree (submits inline; emails info@helloc5.com)
+    const contactForm = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMsg');
+    if (contactForm) contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' },
+        });
+        if (res.ok) {
+          contactForm.hidden = true;
+          formMsg.hidden = false;
+          formMsg.className = 'mt-4 text-[0.95rem] text-ansigreen';
+          formMsg.textContent = "Thanks — we'll be in touch shortly.";
+        } else {
+          throw new Error('Form error');
+        }
+      } catch (err) {
+        btn.disabled = false; btn.textContent = original;
+        formMsg.hidden = false;
+        formMsg.className = 'mt-4 text-[0.9rem] text-ink2';
+        formMsg.innerHTML = 'Something went wrong — please email <a href="mailto:info@helloc5.com" class="lnk align-baseline">info@helloc5.com</a>.';
+      }
+    });
+  </script>
+</body>
+</html>
