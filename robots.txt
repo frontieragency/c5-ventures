@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://helloc5.com/sitemap.xml
