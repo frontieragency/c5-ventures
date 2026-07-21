@@ -4,3 +4,5 @@ temporary screenshots/
 _*.cjs
 _*.js
 notes/
+dist/
+.netlify/
