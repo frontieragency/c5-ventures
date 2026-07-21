@@ -114,7 +114,23 @@
         <a href="#top" class="flex items-center text-lg font-semibold tracking-tight text-ink" aria-label="C5 home">C5</a>
         <nav class="hidden items-center gap-6 md:flex">
           <a href="#work" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Work</a>
-          <a href="/services.html" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Services</a>
+          <div class="group relative">
+            <a href="/services.html" class="flex items-center gap-1 text-[0.92rem] text-ink2 transition-colors hover:text-ink">
+              Services
+              <svg class="h-3 w-3 transition-transform group-hover:rotate-180" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="invisible absolute left-0 top-full pt-2 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100">
+              <div class="w-56 rounded-xl2 border border-line bg-bg py-2 shadow-lg">
+                <a href="/services.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">All services</a>
+                <a href="/services/seo-site.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">SEO site</a>
+                <a href="/services/instant-quote-engine.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Instant quote engine</a>
+                <a href="/services/front-desk.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Front desk</a>
+                <a href="/services/lead-follow-up.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Lead follow-up</a>
+                <a href="/services/booking.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Booking</a>
+                <a href="/services/paid-diagnostic.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Paid diagnostic</a>
+              </div>
+            </div>
+          </div>
           <a href="/guides.html" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Guides</a>
           <a href="#approach" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Approach</a>
           <a href="#pricing" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Pricing</a>
@@ -134,7 +150,21 @@
     <div id="mobileMenu" class="mobile-menu md:hidden">
       <nav class="border-t border-line bg-cream px-5 py-2">
         <a href="#work" class="block py-3 text-[1.0625rem] text-ink">Work</a>
-        <a href="/services.html" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Services</a>
+        <details class="border-t border-line">
+          <summary class="flex cursor-pointer list-none items-center justify-between py-3 text-[1.0625rem] text-ink [&::-webkit-details-marker]:hidden">
+            Services
+            <svg class="h-4 w-4 text-muted" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="pb-2">
+            <a href="/services.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">All services</a>
+            <a href="/services/seo-site.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">SEO site</a>
+            <a href="/services/instant-quote-engine.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Instant quote engine</a>
+            <a href="/services/front-desk.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Front desk</a>
+            <a href="/services/lead-follow-up.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Lead follow-up</a>
+            <a href="/services/booking.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Booking</a>
+            <a href="/services/paid-diagnostic.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Paid diagnostic</a>
+          </div>
+        </details>
         <a href="/guides.html" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Guides</a>
         <a href="#approach" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Approach</a>
         <a href="#pricing" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Pricing</a>
