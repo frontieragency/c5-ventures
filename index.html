@@ -467,6 +467,13 @@
                    class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
           </div>
           <div>
+            <label class="sr-only" for="phone">Mobile phone</label>
+            <input id="phone" name="phone" type="tel" required inputmode="numeric"
+                   pattern="^\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}$" title="Please enter a 10-digit phone number"
+                   placeholder="(___) ___-____"
+                   class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+          </div>
+          <div>
             <label class="sr-only" for="trade">Trade</label>
             <input id="trade" name="trade" type="text" required placeholder="Your trade (e.g. glass & mirror, HVAC)"
                    class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
@@ -504,6 +511,11 @@
               <option value="No one / goes to voicemail">No one / goes to voicemail</option>
             </select>
           </div>
+        </div>
+        <div class="mt-4 flex items-start gap-2.5">
+          <input id="smsConsent" name="sms_consent" type="checkbox" required
+                 class="mt-1 h-4 w-4 shrink-0 rounded border-line text-accent focus:outline-none focus:ring-2 focus:ring-accent" />
+          <label for="smsConsent" class="text-[0.82rem] text-ink2">I agree to receive text messages from C5 about my business audit. Message and data rates may apply. Reply STOP to opt out.</label>
         </div>
         <input type="hidden" name="_subject" value="New business audit request — C5" />
         <button type="submit" class="btn btn-dark mt-4 w-full px-5 py-3 sm:w-auto">Get my free business audit</button>
