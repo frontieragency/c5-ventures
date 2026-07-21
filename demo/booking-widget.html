@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Your Appointment</title>
+<style>
+  :root {
+    --ink: #141414; --ink2: #3a3a38; --muted: #76746e; --line: #e4e3dd;
+    --panel: #f3f2ef; --accent: #2f6b4f; --accent-dark: #21503a; --bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--ink);
+    background: var(--bg); -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 28px; font-weight: 800; margin: 8px 0 8px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 15px; margin: 0 0 16px; line-height: 1.5; }
+  .badges { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; font-size: 13px; color: var(--ink2); }
+  .badges span { display: flex; align-items: center; gap: 6px; }
+  .badges svg { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
+  .steps { display: flex; gap: 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; margin-bottom: 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  .steps .active { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 12px; margin-bottom: -15px; }
+  .card { background: var(--panel); border-radius: 14px; padding: 28px; }
+  .card h2 { font-size: 20px; margin: 0 0 18px; font-weight: 700; }
+  .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .svc { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px; cursor: pointer; text-align: left; font-family: inherit; }
+  .svc:hover { border-color: var(--accent); }
+  .svc.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+  .svc strong { display: block; font-size: 15px; margin-bottom: 4px; }
+  .svc small { color: var(--muted); font-size: 12.5px; }
+  .cal { margin-top: 20px; }
+  .cal-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink2); margin-bottom: 10px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .day { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 10px 0; text-align: center; cursor: pointer; font-size: 13px; }
+  .day .dow { display: block; font-size: 10px; color: var(--muted); text-transform: uppercase; margin-bottom: 3px; }
+  .day .num { display: block; font-size: 15px; font-weight: 700; }
+  .day:hover { border-color: var(--accent); }
+  .day.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .day.selected .dow { color: rgba(255,255,255,0.75); }
+  .day.disabled { opacity: 0.35; cursor: not-allowed; }
+  .times { margin-top: 20px; }
+  .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .time { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 11px 0; text-align: center; cursor: pointer; font-size: 14px; font-weight: 600; }
+  .time:hover { border-color: var(--accent); }
+  .time.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink2); margin-bottom: 6px; }
+  .field input { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 15px; font-family: inherit; background: #fff; }
+  .field input:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+  .summary { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; font-size: 14px; color: var(--ink2); }
+  .summary strong { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #fff; border: none; border-radius: 999px; padding: 14px 26px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; font-family: inherit; }
+  .btn:hover { background: var(--accent-dark); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .confirm { text-align: center; padding: 20px 0; }
+  .confirm .check { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+  .confirm .check svg { width: 28px; height: 28px; color: #fff; }
+  .confirm h2 { margin-bottom: 8px; }
+  .confirm .details { font-size: 17px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+  .confirm p { color: var(--muted); font-size: 14px; max-width: 380px; margin: 0 auto; line-height: 1.6; }
+  .step-panel { display: none; }
+  .step-panel.active { display: block; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Instant Booking</p>
+    <h1>Book your free estimate.</h1>
+    <p class="sub">Pick a service, a day, and a time — get an instant confirmation, no phone tag.</p>
+    <div class="badges">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Licensed &amp; insured</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Same-day confirmation</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Free rescheduling</span>
+    </div>
+
+    <div class="steps">
+      <div class="s1 active">1 Service</div>
+      <div class="s2">2 Date &amp; Time</div>
+      <div class="s3">3 Details</div>
+      <div class="s4">4 Confirmed</div>
+    </div>
+
+    <div class="card">
+      <div class="step-panel active" id="panel-1">
+        <h2>What do you need?</h2>
+        <div class="svc-grid">
+          <button class="svc" data-svc="New fence installation">
+            <strong>New fence installation</strong>
+            <small>Wood, vinyl, or aluminum</small>
+          </button>
+          <button class="svc" data-svc="Fence repair">
+            <strong>Fence repair</strong>
+            <small>Storm damage, wear, gates</small>
+          </button>
+          <button class="svc" data-svc="Pool fence & gate">
+            <strong>Pool fence &amp; gate</strong>
+            <small>Code-compliant safety fencing</small>
+          </button>
+          <button class="svc" data-svc="Free estimate, not sure">
+            <strong>Not sure yet</strong>
+            <small>Free estimate, no obligation</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="step-panel" id="panel-2">
+        <h2>Pick a day and time</h2>
+        <div class="cal">
+          <div class="cal-label">Available This Week</div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="times">
+          <div class="cal-label">Available Times</div>
+          <div class="time-grid" id="timeGrid">
+            <button class="time" data-time="8:00 AM">8:00 AM</button>
+            <button class="time" data-time="10:30 AM">10:30 AM</button>
+            <button class="time" data-time="1:00 PM">1:00 PM</button>
+            <button class="time" data-time="3:30 PM">3:30 PM</button>
+            <button class="time" data-time="5:00 PM">5:00 PM</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-panel" id="panel-3">
+        <h2>Where should we send the confirmation?</h2>
+        <div class="summary" id="summaryBox"></div>
+        <div class="field"><label>Full name</label><input id="fName" type="text" placeholder="Your name" /></div>
+        <div class="field"><label>Mobile phone</label><input id="fPhone" type="tel" placeholder="(___) ___-____" /></div>
+        <div class="field"><label>Address</label><input id="fAddr" type="text" placeholder="Job address" /></div>
+        <button class="btn" id="confirmBtn" disabled>Confirm booking</button>
+      </div>
+
+      <div class="step-panel" id="panel-4">
+        <div class="confirm">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h2>You're booked.</h2>
+          <p class="details" id="confirmDetails"></p>
+          <p>A confirmation text is on its way. Reply to that text anytime if you need to reschedule — no phone call required.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const state = { service: null, date: null, dateLabel: null, time: null, name: null };
+  const dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  function buildCalendar() {
+    const grid = document.getElementById('calGrid');
+    const today = new Date();
+    let count = 0, offset = 0;
+    while (count < 6) {
+      const d = new Date(today);
+      d.setDate(today.getDate() + offset);
+      offset++;
+      const isSunday = d.getDay() === 0;
+      const div = document.createElement('div');
+      div.className = 'day' + (isSunday ? ' disabled' : '');
+      div.innerHTML = `<span class="dow">${dows[d.getDay()]}</span><span class="num">${d.getDate()}</span>`;
+      if (!isSunday) {
+        div.addEventListener('click', () => {
+          document.querySelectorAll('.day').forEach(el => el.classList.remove('selected'));
+          div.classList.add('selected');
+          state.date = d;
+          state.dateLabel = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        });
+        count++;
+      }
+      grid.appendChild(div);
+    }
+  }
+  buildCalendar();
+
+  function showPanel(n) {
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + n).classList.add('active');
+    document.querySelectorAll('.steps > div').forEach(el => el.classList.remove('active'));
+    document.querySelector('.s' + n).classList.add('active');
+  }
+
+  document.querySelectorAll('.svc').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.svc').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      state.service = btn.dataset.svc;
+      setTimeout(() => showPanel(2), 250);
+    });
+  });
+
+  document.querySelectorAll('.time').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.time').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      state.time = btn.dataset.time;
+      if (state.date) {
+        document.getElementById('summaryBox').innerHTML =
+          `<strong>${state.service}</strong><br>${state.dateLabel} at <strong>${state.time}</strong>`;
+        setTimeout(() => showPanel(3), 250);
+      }
+    });
+  });
+
+  function checkDetails() {
+    const ok = document.getElementById('fName').value.trim() &&
+               document.getElementById('fPhone').value.trim() &&
+               document.getElementById('fAddr').value.trim();
+    document.getElementById('confirmBtn').disabled = !ok;
+  }
+  ['fName','fPhone','fAddr'].forEach(id => document.getElementById(id).addEventListener('input', checkDetails));
+
+  document.getElementById('confirmBtn').addEventListener('click', () => {
+    state.name = document.getElementById('fName').value.trim();
+    document.getElementById('confirmDetails').textContent = `${state.dateLabel} · ${state.time}`;
+    showPanel(4);
+  });
+</script>
+</body>
+</html>
