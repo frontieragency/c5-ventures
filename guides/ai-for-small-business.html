@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where AI Actually Helps a Small Trade Business — C5</title>
+  <meta name="description" content="AI is a good fit for some parts of running a small trade business, and a bad fit for others. Where it genuinely helps, where it doesn't, and why." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+    .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="/#contact" class="btn btn-dark">Get my free business audit</a>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-8 pb-12 sm:pt-10">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <a href="/guides.html" class="transition-colors hover:text-ink">Guides</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">AI for small business</span>
+      </nav>
+      <p class="label mt-9">Guide</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">AI is good at some of this. Not all of it.</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">Every part of running a business isn't equally suited to it. Here's where it genuinely removes friction for a small trade business, and where handing it to a person is still the right call.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Adoption is real, trust is the holdup</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Small businesses are behind — and cautious for a real reason.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Small businesses make up 44% of U.S. GDP but have lagged larger companies in AI adoption, per Anthropic's own reporting on its small-business offering. In the same research, roughly half of small business owners surveyed named data security as their single biggest hesitation about using AI at all — not cost, not complexity. That caution is worth taking seriously, not talking someone out of.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Where it's a legitimate fit</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Repeatable, well-defined, high-volume tasks.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">Answering the phone and the first message</h3><p class="mt-2 text-[0.9rem] text-ink2">Routine calls, texts, and booking requests follow predictable patterns — the same handful of questions, over and over. That's exactly the kind of repetition worth handing off.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Following up on a lead</h3><p class="mt-2 text-[0.9rem] text-ink2">A lead that goes cold because nobody had time to call back isn't a judgment problem — it's a follow-through problem, and follow-through is where automation earns its keep.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Paperwork and admin</h3><p class="mt-2 text-[0.9rem] text-ink2">Invoice chasing, drafting routine correspondence, organizing records for tax season — Anthropic's own published workflow list for small businesses centers almost entirely on exactly this kind of task.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Watching the numbers</h3><p class="mt-2 text-[0.9rem] text-ink2">Monitoring cash position, reconciling accounts, flagging when a marketing campaign's performance shifts — pattern-spotting across data a busy owner doesn't have time to check daily.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Where it's not the right tool</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Judgment calls a person actually has to make.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">Diagnosing what's actually wrong</h3><p class="mt-2 text-[0.9rem] text-ink2">Whether a repair is structural, what caused it, what it'll actually take to fix — that needs someone who's physically looked at the job, not a generated guess standing in for an inspection.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Anything with real liability attached</h3><p class="mt-2 text-[0.9rem] text-ink2">Final pricing on a safety-critical job, a legal or insurance-facing decision — the kind of call that needs someone accountable for it, by name.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">A customer who's upset</h3><p class="mt-2 text-[0.9rem] text-ink2">A script can handle a routine question. It can't de-escalate a genuinely frustrated customer the way someone who actually cares about the outcome can.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">The work itself</h3><p class="mt-2 text-[0.9rem] text-ink2">Google's own quality guidelines reward real, first-hand experience over content that just describes it — the same principle applies off the page. Nothing replaces someone who's actually done the job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16 max-w-2xl">
+      <p class="label">The point of all this</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Outcomes, not a tech stack.</h2>
+      <p class="mt-4 text-[1rem] text-ink2">The goal was never "use more AI." It's picking the handful of places it genuinely removes friction — the phone that never gets answered, the lead that never gets a follow-up — and leaving the rest to the people who've actually done the work.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
+        <div>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">Not sure where the line is for your business?</h2>
+          <p class="mt-3 text-[1rem] text-white/70">Tell us your trade and where you're losing time or leads today — we'll tell you honestly what's worth automating and what isn't, no pitch attached.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/#contact" class="btn bg-cream text-ink hover:bg-white">Get my free business audit</a>
+          <a href="/services/paid-diagnostic.html" class="btn border border-white/30 text-white transition-colors hover:border-accent hover:text-accent">See the paid diagnostic</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.85rem] text-muted">Other guides: <a href="/guides/google-business-profile.html" class="lnk">Google Business Profile</a>, <a href="/guides/google-search-console.html" class="lnk">Google Search Console</a>, <a href="/guides/website-builders.html" class="lnk">Website builders</a>, <a href="/guides/mobile-vs-desktop.html" class="lnk">Mobile vs. desktop</a>.</p>
+      <p class="mt-4 text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
