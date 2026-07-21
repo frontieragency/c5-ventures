@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Search Console Checklist for Local Trade Businesses — C5</title>
+  <meta name="description" content="How to actually read Google Search Console — verification, sitemaps, indexing errors, what's ranking, and what to fix first." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+    .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+    .num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: #f3f2ef; color: #bf5b2e; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+    .item { display: flex; gap: 14px; }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="/#contact" class="btn btn-dark">Get my free business audit</a>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-8 pb-12 sm:pt-10">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <a href="/guides.html" class="transition-colors hover:text-ink">Guides</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">Google Search Console</span>
+      </nav>
+      <p class="label mt-9">Guide</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">The Google Search Console checklist.</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">Search Console is free, and it's the only place that tells you the truth about how Google actually sees your site. Most business owners have never opened it. Here's what to check, and in what order.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Set up once</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Get verified and submitted before anything else matters.</h2>
+      <div class="mt-8 space-y-7 max-w-2xl">
+        <div class="item">
+          <span class="num">1</span>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Verify your property</h3><p class="mt-1.5 text-[0.95rem] text-ink2">A DNS TXT record is the most reliable method and survives a site redesign or platform switch — an HTML file or meta tag can get wiped out the next time someone touches the site.</p></div>
+        </div>
+        <div class="item">
+          <span class="num">2</span>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Submit your sitemap</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Under Sitemaps, submit sitemap.xml directly. This is what tells Google every page you actually want indexed, instead of relying on it to stumble onto them by following links.</p></div>
+        </div>
+        <div class="item">
+          <span class="num">3</span>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Check for manual actions and security issues first</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Under Security &amp; Manual Actions — if either shows anything, it overrides everything else on this list. A manual penalty or a hacked-site flag means the rest of your SEO doesn't matter until it's cleared.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Check monthly</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The reports that actually tell you something.</h2>
+      <div class="mt-8 space-y-7 max-w-2xl">
+        <div class="item">
+          <span class="num">4</span>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Pages report — what's actually indexed</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Shows every page Google has and hasn't indexed, and why not (duplicate content, crawled but not indexed, blocked by robots.txt). A page that doesn't show up here can't rank for anything, no matter how well it's written.</p></div>
+        </div>
+        <div class="item">
+          <span class="num">5</span>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Performance report — queries, clicks, position</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Shows the actual search terms people used to find you, how often you showed up, and where you ranked. This is the single best source of what to write more of — real queries you're already getting found for, just not high enough.</p></div>
+        </div>
+        <div class="item">
+          <span class="num">6</span>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Mobile usability</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Flags text too small to read, clickable elements too close together, content wider than the screen — real problems on the device more than half of your visitors are using.</p></div>
+        </div>
+        <div class="item">
+          <span class="num">7</span>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Core Web Vitals</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Measures how fast the page actually feels to load and use. A slow site doesn't just rank worse — it loses the visitor before the quote form even loads.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Common mistakes</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">What quietly costs visibility.</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 max-w-2xl">
+        <div><h3 class="text-[1rem] font-medium text-ink">Never checking it after setup</h3><p class="mt-2 text-[0.9rem] text-ink2">Most accounts were verified once, years ago, and never opened again — the errors and opportunities inside go unread indefinitely.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Ignoring "crawled, not indexed"</h3><p class="mt-2 text-[0.9rem] text-ink2">A page Google visited but chose not to index is usually a real content or duplication problem, not a fluke — and it means that page will never show up in search until it's fixed.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Not requesting indexing after real changes</h3><p class="mt-2 text-[0.9rem] text-ink2">After a meaningful update to a page, use the URL Inspection tool to request re-indexing instead of waiting for Google to notice on its own schedule.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Reading clicks without position</h3><p class="mt-2 text-[0.9rem] text-ink2">A query with high impressions and low clicks usually means you're ranking on page 2 — worth knowing before assuming the content itself isn't working.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
+        <div>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">Or skip the DIY and let us check it.</h2>
+          <p class="mt-3 text-[1rem] text-white/70">The paid diagnostic reviews your search visibility against this exact checklist — plus your Google Business Profile and your phones — and hands you a page-by-page strategy for what to fix first.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/services/paid-diagnostic.html" class="btn bg-cream text-ink hover:bg-white">See the paid diagnostic</a>
+          <a href="/#contact" class="btn border border-white/30 text-white transition-colors hover:border-accent hover:text-accent">Get my free business audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.85rem] text-muted">Other guides: <a href="/guides/google-business-profile.html" class="lnk">Google Business Profile</a>.</p>
+      <p class="mt-4 text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

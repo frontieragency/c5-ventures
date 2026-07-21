@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guides — C5</title>
+  <meta name="description" content="Free, real guides on the tools every local business already has but rarely uses well — Google Business Profile, Google Search Console, and more." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+    .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="/#contact" class="btn btn-dark">Get my free business audit</a>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-8 pb-12 sm:pt-10">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">Guides</span>
+      </nav>
+      <p class="label mt-9">Guides</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">Free, real guides — no pitch attached.</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">Most local businesses already have Google Business Profile and Search Console set up — almost none of them use either well. These are the actual checklists, not a teaser for a sales call.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">The Google world</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Google isn't one system. It's at least three.</h2>
+      <div class="mt-6 grid gap-8 sm:grid-cols-2 max-w-none">
+        <div>
+          <h3 class="text-[1rem] font-medium text-ink">The world</h3>
+          <p class="mt-2 text-[0.95rem] text-ink2">Google Business Profile (Maps and the local pack), organic Search (your actual website), and now AI Overviews pulling from both to answer a search before anyone clicks a link. Google itself says it sees more than 5 trillion searches a year. None of it happens automatically — a site built on Squarespace, Wix, or anywhere else doesn't rank just because it exists.</p>
+        </div>
+        <div>
+          <h3 class="text-[1rem] font-medium text-ink">The competition</h3>
+          <p class="mt-2 text-[0.95rem] text-ink2">It's not just the shop down the street. Directory sites like Thumbtack, Angi, and HomeAdvisor already rank well for the exact same searches — a business's own site is competing with them too, in Google, in AI Overviews, and everywhere in between.</p>
+        </div>
+        <div>
+          <h3 class="text-[1rem] font-medium text-ink">The science</h3>
+          <p class="mt-2 text-[0.95rem] text-ink2">For a Business Profile, Google publishes exactly what decides local ranking: relevance, distance, and prominence. For your actual website, Google's own quality rater guidelines reward E-E-A-T — Experience, Expertise, Authoritativeness, Trustworthiness. The "Experience" part matters most here: Google explicitly rewards someone who's actually done the work over a page that just describes it — the same reasoning behind using tools like Gauge for the AI-answer-engine side of Sonshine's relaunch, not just traditional SEO.</p>
+        </div>
+        <div>
+          <h3 class="text-[1rem] font-medium text-ink">The economics</h3>
+          <p class="mt-2 text-[0.95rem] text-ink2">This isn't abstract, and it isn't instant. Even Sonshine Glass — the real client behind the $93K signed contract covered elsewhere on this site — doesn't have every page indexed yet; getting a full site indexed and ranked is ongoing work, not a switch you flip once. But the pages that are indexed are the ones doing the work.</p>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <h3 class="text-[1.05rem] font-medium text-ink">How they actually compare</h3>
+        <p class="mt-2 max-w-2xl text-[0.9rem] text-ink2">Google, Angi, and Thumbtack aren't the same kind of thing, for either side of the transaction.</p>
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full min-w-[640px] border-collapse text-[0.88rem]">
+            <thead>
+              <tr class="border-b border-line text-left">
+                <th class="py-3 pr-4 font-medium text-ink2"></th>
+                <th class="py-3 px-4 font-medium text-ink">Google</th>
+                <th class="py-3 px-4 font-medium text-ink">Angi</th>
+                <th class="py-3 pl-4 font-medium text-ink">Thumbtack</th>
+              </tr>
+            </thead>
+            <tbody class="text-ink2">
+              <tr class="border-b border-line">
+                <td class="py-3 pr-4 font-medium text-ink">For the consumer</td>
+                <td class="py-3 px-4">Free — search, compare, and contact a business directly</td>
+                <td class="py-3 px-4">Free to browse and request quotes</td>
+                <td class="py-3 pl-4">Free — submit a request, compare quotes</td>
+              </tr>
+              <tr class="border-b border-line">
+                <td class="py-3 pr-4 font-medium text-ink">For the business</td>
+                <td class="py-3 px-4">No fee to appear or rank organically</td>
+                <td class="py-3 px-4">Pay to advertise and appear in search</td>
+                <td class="py-3 pl-4">Pay per lead, whether or not it closes</td>
+              </tr>
+              <tr class="border-b border-line">
+                <td class="py-3 pr-4 font-medium text-ink">Who else gets the lead</td>
+                <td class="py-3 px-4">No one — it's a direct call or form fill to you</td>
+                <td class="py-3 px-4">Typically sold to 3–5 pros at once</td>
+                <td class="py-3 pl-4">Typically sold to multiple pros at once</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-medium text-ink">What you're really buying</td>
+                <td class="py-3 px-4">Visibility you keep building on, indefinitely</td>
+                <td class="py-3 px-4">Visibility rented for as long as you keep paying</td>
+                <td class="py-3 pl-4">A shot at a lead other pros already have too</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mt-12 max-w-2xl">
+        <h3 class="text-[1.05rem] font-medium text-ink">This isn't only a Google problem</h3>
+        <p class="mt-2 text-[0.95rem] text-ink2">None of this works in isolation. A customer who can't reach anyone, or never hears back after asking for a quote, doesn't just go quiet — they sometimes leave a review that says exactly that. Reviews are a real, published Google ranking factor, folded into what Google calls prominence and trustworthiness. A bad experience doesn't just cost the one job in front of you — it can quietly work against the visibility that's supposed to bring the next ten.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-4 sm:grid-cols-2">
+
+        <article class="rounded-xl2 border border-line bg-panel p-6">
+          <h2 class="display text-[1.4rem] text-ink">Google Business Profile</h2>
+          <p class="mt-2 text-[0.95rem] text-ink2">The real checklist — categories, photos, reviews, Q&amp;A, and the mistakes that quietly cost you visibility.</p>
+          <a href="/guides/google-business-profile.html" class="lnk mt-4">Read the guide
+            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="rounded-xl2 border border-line bg-panel p-6">
+          <h2 class="display text-[1.4rem] text-ink">Google Search Console</h2>
+          <p class="mt-2 text-[0.95rem] text-ink2">How to actually read it — indexing errors, what's ranking, what's broken, and what to fix first.</p>
+          <a href="/guides/google-search-console.html" class="lnk mt-4">Read the guide
+            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
+        <div>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">Or skip the DIY and let us check it.</h2>
+          <p class="mt-3 text-[1rem] text-white/70">The paid diagnostic covers your Google Business Profile, your search visibility, and your phones — plus a real page-by-page strategy for what to fix first.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/services/paid-diagnostic.html" class="btn bg-cream text-ink hover:bg-white">See the paid diagnostic</a>
+          <a href="/#contact" class="btn border border-white/30 text-white transition-colors hover:border-accent hover:text-accent">Get my free business audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
