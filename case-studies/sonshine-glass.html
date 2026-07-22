@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonshine Glass & Mirror — Case Study — C5</title>
+  <meta name="description" content="A real Google Search Console export, before and after a full site rebuild for Sonshine Glass & Mirror — including the math that adjusts for the two time windows not being equal length." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+    .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+    .win { background: #fff; border: 1px solid #e4e3dd; border-radius: 12px; overflow: hidden;
+           box-shadow: 0 1px 2px rgba(20,20,20,.04), 0 24px 60px -28px rgba(20,20,20,.28); }
+    .win-bar { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border-bottom: 1px solid #efeee9; background: #faf9f7; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .win-img { width: 100%; height: 340px; object-fit: cover; object-position: top; display: block; }
+    table.stat-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    table.stat-table th, table.stat-table td { padding: 10px 14px; text-align: right; border-bottom: 1px solid #e4e3dd; }
+    table.stat-table th:first-child, table.stat-table td:first-child { text-align: left; }
+    table.stat-table thead th { font-weight: 500; color: #141414; }
+    table.stat-table tbody td { color: #3a3a38; }
+    table.stat-table tfoot td { font-weight: 600; color: #141414; border-bottom: none; }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="/#contact" class="btn btn-dark">Get my free business audit</a>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-8 pb-12 sm:pt-10">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">Case study</span>
+      </nav>
+      <p class="label mt-9">Case study — Sonshine Glass & Mirror</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">1 click in 14 months. 79 in under two.</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">A real Orange County client, pulled straight from their own Google Search Console — including the math that adjusts for the fact these two time windows aren't the same length. No cherry-picking, no rounding in our favor.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">The site itself</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Same business. Different site.</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        <div>
+          <div class="win">
+            <div class="win-bar"><span class="dot" style="background:#ec6a5e;"></span><span class="dot" style="background:#f4bf50;"></span><span class="dot" style="background:#61c454;"></span><span class="mono ml-2 text-[11px] text-muted">sonshineglass.com — Dec 2021</span></div>
+            <img src="/assets/img/case-studies/sonshine-before.png" alt="Sonshine Glass & Mirror homepage, December 2021" class="win-img" />
+          </div>
+          <p class="mt-2 text-[0.8rem] text-muted">Before — generic template, stock layout.</p>
+        </div>
+        <div>
+          <div class="win">
+            <div class="win-bar"><span class="dot" style="background:#ec6a5e;"></span><span class="dot" style="background:#f4bf50;"></span><span class="dot" style="background:#61c454;"></span><span class="mono ml-2 text-[11px] text-muted">sonshineglass.com — today</span></div>
+            <img src="/assets/img/case-studies/sonshine-after.png" alt="Sonshine Glass & Mirror homepage, current" class="win-img" />
+          </div>
+          <p class="mt-2 text-[0.8rem] text-muted">After — real photography, real content, a real quote flow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">What Google Search Console shows</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The old window: 431 days. The new one: 55.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Search Console only retains about 16 months of history, so the "before" period below is effectively everything available prior to the rebuild — March 21, 2025 through May 26, 2026. The rebuild went live May 27, 2026. That means the "after" period is under two months, compared against a "before" period nearly 8x longer.</p>
+      <div class="mt-8 overflow-x-auto">
+        <table class="stat-table min-w-[480px]">
+          <thead>
+            <tr><th></th><th>Before<br><span class="mono text-[11px] text-muted">3/21/25 – 5/26/26 · 431 days</span></th><th>After<br><span class="mono text-[11px] text-muted">5/27/26 – 7/21/26 · 55 days</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Total clicks (site-wide)</td><td>1</td><td>79</td></tr>
+            <tr><td>Total impressions (site-wide)</td><td>111</td><td>6,630</td></tr>
+            <tr><td>Average CTR</td><td>0.9%</td><td>1.2%</td></tr>
+            <tr><td>Homepage clicks / impressions</td><td>1 / 55</td><td>69 / 3,926</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Normalized for time</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Not a fair comparison until you adjust for that.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Comparing 79 clicks against 1 click means little on its own if one period is 4x longer than the other — a longer window naturally accumulates more, regardless of what changed. So we normalized both periods to a daily rate instead.</p>
+      <div class="mt-8 overflow-x-auto">
+        <table class="stat-table min-w-[480px]">
+          <thead>
+            <tr><th></th><th>Before (per day)</th><th>After (per day)</th><th>Multiplier</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Impressions</td><td>0.26</td><td>120.5</td><td class="text-accent font-medium">~468x</td></tr>
+            <tr><td>Clicks</td><td>0.002</td><td>1.44</td><td class="text-accent font-medium">~618x</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 max-w-2xl text-[0.95rem] text-ink2">Normalizing actually makes the result look bigger, not smaller — the old site was producing almost nothing even averaged across 14+ months, while the new one is generating clicks and impressions at roughly 500–600x that daily rate in under eight weeks. That's not an artifact of the longer comparison window; it's the opposite of one.</p>
+      <p class="mt-4 max-w-2xl text-[0.85rem] text-muted">For scale only, not a projection or a promise: holding the new rate for the same 431 days the "before" period covers would work out to roughly 52,000 impressions and 620 clicks, against the old site's actual 111 and 1. We're not claiming that will happen — just showing what the current rate means at equal scale.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16 max-w-2xl">
+      <p class="label">What actually changed</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">A rebuilt site, not a redesign.</h2>
+      <p class="mt-4 text-[1rem] text-ink2">The visual refresh is the part you can see in the screenshots above, but it's not what moved these numbers on its own. The bigger shift was underneath: real, individual content pages replacing a handful of generic ones, a site Google could actually crawl and index properly, and a mobile experience that held up — mobile clicks went from effectively zero to a real share of total traffic, right alongside desktop. Search interest in the business's own name went from nonexistent to real and repeatable, which only happens once a brand has enough of a footprint for people to search for it by name instead of finding it by accident.</p>
+      <p class="mt-4 text-[1rem] text-ink2">This is the same client behind the $300K+ in lead volume referenced elsewhere on this site — the visibility shown here is the mechanism behind that number, not a separate story.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
+        <div>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">Want to see what your own Search Console actually says?</h2>
+          <p class="mt-3 text-[1rem] text-white/70">The paid diagnostic reviews your real search visibility, your Google Business Profile, and your phones — then hands you a page-by-page strategy for what to fix first.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/services/paid-diagnostic.html" class="btn bg-cream text-ink hover:bg-white">See the paid diagnostic</a>
+          <a href="/#contact" class="btn border border-white/30 text-white transition-colors hover:border-accent hover:text-accent">Get my free business audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.85rem] text-muted">More: <a href="/guides.html" class="lnk">Free guides</a>, <a href="/services.html" class="lnk">Services</a>, <a href="/#work" class="lnk">Our work</a>.</p>
+      <p class="mt-4 text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
