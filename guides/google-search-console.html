@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Google Search Console Checklist for Local Trade Businesses — C5</title>
-  <meta name="description" content="How to actually read Google Search Console — verification, sitemaps, indexing errors, what's ranking, and what to fix first." />
+  <meta name="description" content="What Google Search Console actually is, why it matters, and what to check first — explained without assuming you've ever heard of it." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,27 +50,28 @@
         <span class="text-ink">Google Search Console</span>
       </nav>
       <p class="label mt-9">Guide</p>
-      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">The Google Search Console checklist.</h1>
-      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">Search Console is free, and it's the only place that tells you the truth about how Google actually sees your site. Most business owners have never opened it. Here's what to check, and in what order.</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">What Google Search Console actually is.</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">Not a setting inside your website — its own free, separate dashboard from Google. Log in, and it tells you the one thing nothing else can: exactly how Google sees your site, what's actually showing up in search, and what's broken. Almost no business owner has ever opened it.</p>
     </div>
   </section>
 
   <section class="border-t border-line bg-bg">
     <div class="mx-auto max-w-content px-5 py-16">
       <p class="label">Set up once</p>
-      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Get verified and submitted before anything else matters.</h2>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Usually a one-time job for whoever manages your site.</h2>
+      <p class="mt-4 max-w-2xl text-[0.95rem] text-ink2">These three don't need to be done by you personally — if someone else manages your website, this is a fair thing to just ask them to confirm.</p>
       <div class="mt-8 space-y-7 max-w-2xl">
         <div class="item">
           <span class="num">1</span>
-          <div><h3 class="text-[1.05rem] font-medium text-ink">Verify your property</h3><p class="mt-1.5 text-[0.95rem] text-ink2">A DNS TXT record is the most reliable method and survives a site redesign or platform switch — an HTML file or meta tag can get wiped out the next time someone touches the site.</p></div>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Prove to Google the site is actually yours</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Before Search Console shows you anything, there's a one-time step to prove ownership. The most reliable way is a small entry added to the domain's settings (technically called a DNS TXT record) — it survives a site redesign or a switch to a new platform, where quicker methods can get wiped out the next time anyone touches the site.</p></div>
         </div>
         <div class="item">
           <span class="num">2</span>
-          <div><h3 class="text-[1.05rem] font-medium text-ink">Submit your sitemap</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Under Sitemaps, submit sitemap.xml directly. This is what tells Google every page you actually want indexed, instead of relying on it to stumble onto them by following links.</p></div>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Hand Google the full list of your pages</h3><p class="mt-1.5 text-[0.95rem] text-ink2">A sitemap is just a list of every page on the site, in one file. Submitting it (under "Sitemaps") means Google gets that list directly, instead of having to stumble onto pages on its own by following links around — pages that are hard to stumble onto that way can stay invisible for a long time.</p></div>
         </div>
         <div class="item">
           <span class="num">3</span>
-          <div><h3 class="text-[1.05rem] font-medium text-ink">Check for manual actions and security issues first</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Under Security &amp; Manual Actions — if either shows anything, it overrides everything else on this list. A manual penalty or a hacked-site flag means the rest of your SEO doesn't matter until it's cleared.</p></div>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Check for a red flag Google's already raised</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Under "Security &amp; Manual Actions" — if anything shows up here, it overrides everything else on this list. A manual penalty or a hacked-site warning means nothing else gets fixed properly until this is cleared first.</p></div>
         </div>
       </div>
     </div>
@@ -79,23 +80,23 @@
   <section class="border-t border-line bg-panel">
     <div class="mx-auto max-w-content px-5 py-16">
       <p class="label">Check monthly</p>
-      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The reports that actually tell you something.</h2>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The screens that actually tell you something.</h2>
       <div class="mt-8 space-y-7 max-w-2xl">
         <div class="item">
           <span class="num">4</span>
-          <div><h3 class="text-[1.05rem] font-medium text-ink">Pages report — what's actually indexed</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Shows every page Google has and hasn't indexed, and why not (duplicate content, crawled but not indexed, blocked by robots.txt). A page that doesn't show up here can't rank for anything, no matter how well it's written.</p></div>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">See what Google is actually showing</h3><p class="mt-1.5 text-[0.95rem] text-ink2">The Pages report lists every page Google found, and — separately — every page it chose not to include in search results, with a reason why. If a page isn't on the "included" list, it cannot show up in a Google search. Full stop, no matter how good it is.</p></div>
         </div>
         <div class="item">
           <span class="num">5</span>
-          <div><h3 class="text-[1.05rem] font-medium text-ink">Performance report — queries, clicks, position</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Shows the actual search terms people used to find you, how often you showed up, and where you ranked. This is the single best source of what to write more of — real queries you're already getting found for, just not high enough.</p></div>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">See what people actually searched to find you</h3><p class="mt-1.5 text-[0.95rem] text-ink2">The Performance report shows the real words and phrases people typed into Google before landing on the site, how often that happened, and roughly where the site showed up in the results. It's the closest thing to reading a customer's mind before they call.</p></div>
         </div>
         <div class="item">
           <span class="num">6</span>
-          <div><h3 class="text-[1.05rem] font-medium text-ink">Mobile usability</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Flags text too small to read, clickable elements too close together, content wider than the screen — real problems on the device more than half of your visitors are using.</p></div>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Check the phone experience specifically</h3><p class="mt-1.5 text-[0.95rem] text-ink2">The Mobile Usability report flags text too small to read, buttons too close together to tap accurately, content that doesn't fit the screen — real problems on the device more than half of the site's visitors are using.</p></div>
         </div>
         <div class="item">
           <span class="num">7</span>
-          <div><h3 class="text-[1.05rem] font-medium text-ink">Core Web Vitals</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Measures how fast the page actually feels to load and use. A slow site doesn't just rank worse — it loses the visitor before the quote form even loads.</p></div>
+          <div><h3 class="text-[1.05rem] font-medium text-ink">Check the site-speed score</h3><p class="mt-1.5 text-[0.95rem] text-ink2">Google's own measurement of how fast a page actually feels to load and use. A slow site doesn't just show up lower in search — it loses the visitor before the quote form even finishes loading.</p></div>
         </div>
       </div>
     </div>
@@ -107,9 +108,9 @@
       <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">What quietly costs visibility.</h2>
       <div class="mt-8 grid gap-6 sm:grid-cols-2 max-w-2xl">
         <div><h3 class="text-[1rem] font-medium text-ink">Never checking it after setup</h3><p class="mt-2 text-[0.9rem] text-ink2">Most accounts were verified once, years ago, and never opened again — the errors and opportunities inside go unread indefinitely.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">Ignoring "crawled, not indexed"</h3><p class="mt-2 text-[0.9rem] text-ink2">A page Google visited but chose not to index is usually a real content or duplication problem, not a fluke — and it means that page will never show up in search until it's fixed.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">Not requesting indexing after real changes</h3><p class="mt-2 text-[0.9rem] text-ink2">After a meaningful update to a page, use the URL Inspection tool to request re-indexing instead of waiting for Google to notice on its own schedule.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">Reading clicks without position</h3><p class="mt-2 text-[0.9rem] text-ink2">A query with high impressions and low clicks usually means you're ranking on page 2 — worth knowing before assuming the content itself isn't working.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Ignoring the pages Google looked at but skipped</h3><p class="mt-2 text-[0.9rem] text-ink2">Google visits a page, then decides not to include it in search results — usually a sign of a real content problem, not a fluke. That page won't show up in search until it's fixed.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Not telling Google about real updates</h3><p class="mt-2 text-[0.9rem] text-ink2">After a meaningful change to a page, there's a button (the URL Inspection tool) that asks Google to take another look sooner — instead of waiting for it to notice on its own schedule, which can take a while.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Seeing interest without checking the ranking</h3><p class="mt-2 text-[0.9rem] text-ink2">A search term with a lot of impressions but almost no clicks usually means the site is showing up on page 2 of the results, not page 1 — worth knowing before assuming the page itself isn't good enough.</p></div>
       </div>
     </div>
   </section>
@@ -118,7 +119,7 @@
     <div class="mx-auto max-w-content px-5 py-16">
       <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
         <div>
-          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">Or skip the DIY and let us check it.</h2>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">Or skip figuring it out yourself — let us check it.</h2>
           <p class="mt-3 text-[1rem] text-white/70">The paid diagnostic reviews your search visibility against this exact checklist — plus your Google Business Profile and your phones — and hands you a page-by-page strategy for what to fix first.</p>
         </div>
         <div class="flex flex-wrap gap-3 lg:justify-end">
