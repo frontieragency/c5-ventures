@@ -131,7 +131,22 @@
               </div>
             </div>
           </div>
-          <a href="/guides.html" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Guides</a>
+          <div class="group relative">
+            <a href="/guides.html" class="flex items-center gap-1 text-[0.92rem] text-ink2 transition-colors hover:text-ink">
+              Guides
+              <svg class="h-3 w-3 transition-transform group-hover:rotate-180" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="invisible absolute left-0 top-full pt-2 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100">
+              <div class="w-56 rounded-xl2 border border-line bg-bg py-2 shadow-lg">
+                <a href="/guides.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">All guides</a>
+                <a href="/guides/google-business-profile.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Google Business Profile</a>
+                <a href="/guides/google-search-console.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Google Search Console</a>
+                <a href="/guides/website-builders.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Website builders</a>
+                <a href="/guides/mobile-vs-desktop.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">Mobile vs. desktop</a>
+                <a href="/guides/ai-for-small-business.html" class="block px-4 py-2 text-[0.88rem] text-ink2 transition-colors hover:bg-panel hover:text-ink">AI for small business</a>
+              </div>
+            </div>
+          </div>
           <a href="#approach" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Approach</a>
           <a href="#pricing" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">Pricing</a>
           <a href="#about" class="text-[0.92rem] text-ink2 transition-colors hover:text-ink">About</a>
@@ -165,7 +180,20 @@
             <a href="/services/paid-diagnostic.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Paid diagnostic</a>
           </div>
         </details>
-        <a href="/guides.html" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Guides</a>
+        <details class="border-t border-line">
+          <summary class="flex cursor-pointer list-none items-center justify-between py-3 text-[1.0625rem] text-ink [&::-webkit-details-marker]:hidden">
+            Guides
+            <svg class="h-4 w-4 text-muted" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="pb-2">
+            <a href="/guides.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">All guides</a>
+            <a href="/guides/google-business-profile.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Google Business Profile</a>
+            <a href="/guides/google-search-console.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Google Search Console</a>
+            <a href="/guides/website-builders.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Website builders</a>
+            <a href="/guides/mobile-vs-desktop.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">Mobile vs. desktop</a>
+            <a href="/guides/ai-for-small-business.html" class="block py-2 pl-3 text-[0.95rem] text-ink2">AI for small business</a>
+          </div>
+        </details>
         <a href="#approach" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Approach</a>
         <a href="#pricing" class="block border-t border-line py-3 text-[1.0625rem] text-ink">Pricing</a>
         <a href="#about" class="block border-t border-line py-3 text-[1.0625rem] text-ink">About</a>
@@ -630,7 +658,16 @@
             <li><a href="#work" class="text-ink2 transition-colors hover:text-ink">Our work</a></li>
             <li><a href="#why" class="text-ink2 transition-colors hover:text-ink">Why C5</a></li>
             <li><a href="#about" class="text-ink2 transition-colors hover:text-ink">About</a></li>
-            <li><a href="/guides.html" class="text-ink2 transition-colors hover:text-ink">Guides</a></li>
+            <li>
+              <a href="/guides.html" class="text-ink2 transition-colors hover:text-ink">Guides</a>
+              <ul class="mt-2.5 space-y-2 border-l border-line pl-3">
+                <li><a href="/guides/google-business-profile.html" class="text-[0.85rem] text-muted transition-colors hover:text-ink">Google Business Profile</a></li>
+                <li><a href="/guides/google-search-console.html" class="text-[0.85rem] text-muted transition-colors hover:text-ink">Google Search Console</a></li>
+                <li><a href="/guides/website-builders.html" class="text-[0.85rem] text-muted transition-colors hover:text-ink">Website builders</a></li>
+                <li><a href="/guides/mobile-vs-desktop.html" class="text-[0.85rem] text-muted transition-colors hover:text-ink">Mobile vs. desktop</a></li>
+                <li><a href="/guides/ai-for-small-business.html" class="text-[0.85rem] text-muted transition-colors hover:text-ink">AI for small business</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
         <div>
