@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Why Your Site Can Look Different on Mobile vs. Desktop — C5</title>
-  <meta name="description" content="Desktop and mobile aren't the same site scaled down. What actually differs between them, why Google mostly judges the mobile version, and what a slow mobile site costs." />
+  <meta name="description" content="A real side-by-side look at a mobile-friendly site vs. one that isn't, why Google mostly judges the phone version of your site, and what that costs when nobody checks it." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,6 +27,13 @@
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
     .btn-dark { background: #141414; color: #fff; }
     .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+    .win { background: #fff; border: 1px solid #e4e3dd; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(20,20,20,.04), 0 24px 60px -28px rgba(20,20,20,.28); max-width: 280px; margin: 0 auto; }
+    .win-bar { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border-bottom: 1px solid #efeee9; background: #faf9f7; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .win-video { width: 100%; display: block; aspect-ratio: 390/844; object-fit: cover; }
+    .pull-quote { border-left: 3px solid #bf5b2e; padding: 2px 0 2px 16px; margin-top: 12px; }
+    .pull-quote p { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #141414; line-height: 1.35; }
+    .pull-quote cite { display: block; margin-top: 6px; font-style: normal; font-size: 0.78rem; color: #76746e; }
   </style>
 </head>
 <body class="bg-bg font-sans text-ink">
@@ -48,52 +55,94 @@
         <span class="text-ink">Mobile vs. desktop</span>
       </nav>
       <p class="label mt-9">Guide</p>
-      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">Same website, two different experiences.</h1>
-      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">Desktop and mobile aren't just different sizes of the same page — different content can load, different images ship, and Google ranks you almost entirely on the version you've probably never actually checked.</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">Same website. Two completely different experiences.</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">A site can genuinely show something different on a phone than it does on a computer. Google mostly only looks at the phone version — whether or not you've ever actually checked what that looks like.</p>
     </div>
   </section>
 
   <section class="border-t border-line bg-panel">
     <div class="mx-auto max-w-content px-5 py-16">
-      <p class="label">What's actually different, on purpose</p>
-      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">This isn't a bug. It's how the web is built.</h2>
-      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
-        <div><h3 class="text-[1rem] font-medium text-ink">Layout changes at breakpoints</h3><p class="mt-2 text-[0.9rem] text-ink2">CSS media queries — a documented, standard part of the web platform — let a site test screen size and apply entirely different layouts: a three-column desktop page can legitimately become one column on a phone, with elements hidden or reordered.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">Images can change too</h3><p class="mt-2 text-[0.9rem] text-ink2">The <code class="mono text-[0.85em]">srcset</code> attribute lets a page offer several versions of the same image, and the browser picks which one to download based on the device. Google's own web.dev team recommends exactly this: "serving desktop-sized images to mobile devices can use 2–4x more data than needed."</p></div>
+      <p class="label">See it for yourself</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Same real business. Same real phone. Five years apart.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Sonshine Glass &amp; Mirror's old site, and their current one — both recorded on an actual phone screen, not a browser resized to look smaller.</p>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 max-w-none">
+        <div>
+          <div class="win">
+            <div class="win-bar"><span class="dot" style="background:#ec6a5e;"></span><span class="dot" style="background:#f4bf50;"></span><span class="dot" style="background:#61c454;"></span><span class="mono ml-2 text-[11px] font-semibold uppercase tracking-wide text-muted">Old site</span></div>
+            <video class="win-video" src="/assets/video/mobile-old-demo.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <p class="mt-2 text-[0.85rem] text-ink2"><strong class="text-ink">2021:</strong> nothing about how to call or get a quote shows up until you scroll.</p>
+        </div>
+        <div>
+          <div class="win">
+            <div class="win-bar"><span class="dot" style="background:#ec6a5e;"></span><span class="dot" style="background:#f4bf50;"></span><span class="dot" style="background:#61c454;"></span><span class="mono ml-2 text-[11px] font-semibold uppercase tracking-wide text-accent">New site</span></div>
+            <video class="win-video" src="/assets/video/mobile-new-demo.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <p class="mt-2 text-[0.85rem] text-ink2"><strong class="text-ink">Today:</strong> a way to request a quote is visible the moment the page loads.</p>
+        </div>
       </div>
-      <p class="mt-6 max-w-2xl text-[0.9rem] text-ink2">Both are intentional, Google-endorsed practices. The problem isn't that mobile and desktop differ — it's that most business owners have only ever seen their site on the device they built it on, and never checked what a customer on a phone actually sees.</p>
+      <p class="mt-6 max-w-2xl text-[0.9rem] text-ink2">Neither site is "broken" — both load fine on a phone. But loading fine and actually making it easy to reach the business are two different things, and most business owners have only ever looked at their own site on the computer they built it on.</p>
     </div>
   </section>
 
   <section class="border-t border-line bg-bg">
     <div class="mx-auto max-w-content px-5 py-16">
-      <p class="label">Why Google only sees one version</p>
-      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Mobile-first indexing, in Google's own words.</h2>
-      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Google Search Central states it directly: "Google uses the mobile version of a site's content, crawled with the smartphone agent, for indexing and ranking." Google declared the rollout complete across the entire web in October 2023. In practice: if a phone number, a piece of content, or a call-to-action is missing, hidden, or broken specifically on the mobile version, that's the version deciding your ranking — regardless of how the desktop site looks.</p>
+      <p class="label">Why this actually matters</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">On a phone, a phone number can be a button.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">Tap to call, no dialing</h3><p class="mt-2 text-[0.9rem] text-ink2">On a phone, a business's number can be set up as an actual button — tap it, and the call just starts. Someone standing in front of a leaking window doesn't have to remember a number, switch apps, or type anything. That doesn't happen automatically; it has to be built that way on purpose.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">A quote form that actually works with a thumb</h3><p class="mt-2 text-[0.9rem] text-ink2">A short form built for a small screen means someone can ask for a quote right then, standing in their kitchen — not "later, at a computer" they may never get back to. Tiny text boxes and dropdowns that are hard to tap turn a two-minute form into a five-minute fight, and people give up.</p></div>
+      </div>
     </div>
   </section>
 
   <section class="border-t border-line bg-panel">
     <div class="mx-auto max-w-content px-5 py-16">
-      <p class="label">What a neglected mobile site costs</p>
-      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Slow on a phone is a different problem than slow on a laptop.</h2>
-      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
-        <div><h3 class="text-[1rem] font-medium text-ink">Bounce risk climbs fast</h3><p class="mt-2 text-[0.9rem] text-ink2">Google's own published mobile benchmarks (Google/SOASTA research): as mobile load time goes from 1 to 10 seconds, the probability of a visitor bouncing increases 123%. Separately, 53% of mobile visits are abandoned once load time passes 3 seconds.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">Fixing it moves real numbers</h3><p class="mt-2 text-[0.9rem] text-ink2">Google's web.dev has published named case studies of businesses that improved Core Web Vitals: Redbus saw an 80–100% lift in mobile conversion rate, Lazada saw 16.9% more mobile conversions, NDTV cut its bounce rate by half. These aren't hypothetical — they're what changed after fixing the mobile experience specifically.</p></div>
-      </div>
+      <p class="label">Why Google cares which version you see</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Google looks at the phone version to decide what shows up.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Google has said this directly: it looks at the mobile version of a site — not the desktop one — to decide what shows up in search results. Google finished rolling this out across every site on the internet in October 2023. In practice: if a phone number or a way to ask for a quote is missing, buried, or broken specifically on the phone version, that's the version Google is judging — no matter how good the site looks on a computer.</p>
     </div>
   </section>
 
   <section class="border-t border-line bg-bg">
     <div class="mx-auto max-w-content px-5 py-16">
-      <p class="label">Common mistakes</p>
-      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">What quietly costs you on mobile.</h2>
+      <p class="label">What a slow phone experience costs</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">A slow site on a phone loses people fast.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">People leave fast</h3><p class="mt-2 text-[0.9rem] text-ink2">Google's own data: as a page's load time on a phone goes from 1 second to 10 seconds, the chance someone leaves before it finishes loading goes up 123%. More than half of mobile visits get abandoned once a page takes longer than 3 seconds.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Fixing it moves real numbers</h3><p class="mt-2 text-[0.9rem] text-ink2">Google has published real examples of businesses that fixed a slow mobile site: one saw mobile signups roughly double, another saw a real jump in mobile orders, a third cut how often people left immediately nearly in half. These aren't hypothetical — they're what changed once the mobile experience actually got fixed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16 max-w-2xl">
+      <p class="label">Why this happens</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Most people build the desktop version and call it done.</h2>
+      <p class="mt-4 text-[1rem] text-ink2">It's natural — the site gets built and reviewed on a laptop, because that's what the business owner and whoever built it are both looking at during the process. Nobody opens it on their own phone afterward, mostly because there's no reason to; the site already looks "done." That's exactly how a phone number ends up buried, or a quote form ends up too small to tap correctly, for years, without anyone noticing.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Common pitfalls</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The same few mistakes, over and over.</h2>
       <div class="mt-8 grid gap-6 sm:grid-cols-2 max-w-2xl">
-        <div><h3 class="text-[1rem] font-medium text-ink">Never actually opening the site on a phone</h3><p class="mt-2 text-[0.9rem] text-ink2">Resizing a browser window isn't the same as loading the real thing over a real mobile connection.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">Assuming ranking reflects the desktop version</h3><p class="mt-2 text-[0.9rem] text-ink2">It doesn't. Google is judging the mobile version, full stop — that's what mobile-first indexing means.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">Full-size desktop images shipped to mobile</h3><p class="mt-2 text-[0.9rem] text-ink2">Without responsive images, a phone downloads the same heavy files a desktop does — on a slower, often metered connection.</p></div>
-        <div><h3 class="text-[1rem] font-medium text-ink">A phone number that's easy to find on desktop, buried on mobile</h3><p class="mt-2 text-[0.9rem] text-ink2">If the layout reorders on a smaller screen, the one thing a customer actually needs — how to reach you — can end up several scrolls down.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Never opening your own site on your own phone</h3><p class="mt-2 text-[0.9rem] text-ink2">Resizing a browser window on a laptop isn't the same as loading the real site over a real phone connection.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">A phone number that isn't actually tappable</h3><p class="mt-2 text-[0.9rem] text-ink2">If the number on the page isn't set up as a tap-to-call button, someone has to copy it, switch apps, and dial it manually — and a lot of people just won't.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">A quote form that's painful on a small screen</h3><p class="mt-2 text-[0.9rem] text-ink2">Tiny fields and dropdowns that are hard to tap turn a quick form into a frustrating one, and people give up halfway through.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Assuming Google judges the site you see on your computer</h3><p class="mt-2 text-[0.9rem] text-ink2">It doesn't. Google looks at the phone version specifically — that's the one that has to actually work.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16 max-w-2xl">
+      <p class="label">The difference</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">We build the phone version like it's the one that matters — because it is.</h2>
+      <p class="mt-4 text-[1rem] text-ink2">A tappable phone number, a quote form that actually works with a thumb, a page that loads fast on a real phone connection, not just fast office WiFi — that's not an afterthought, it's the starting point. <a href="/case-studies/sonshine-glass.html" class="lnk">See what that looked like for a real client
+        <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a></p>
     </div>
   </section>
 
@@ -102,7 +151,7 @@
       <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
         <div>
           <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">See what your site actually looks like on a phone.</h2>
-          <p class="mt-3 text-[1rem] text-white/70">The paid diagnostic checks your real mobile experience — not a browser resize — alongside your search visibility and your phones.</p>
+          <p class="mt-3 text-[1rem] text-white/70">The paid diagnostic checks your real mobile experience — including whether your phone number and quote form actually work — alongside your search visibility.</p>
         </div>
         <div class="flex flex-wrap gap-3 lg:justify-end">
           <a href="/services/paid-diagnostic.html" class="btn bg-cream text-ink hover:bg-white">See the paid diagnostic</a>
