@@ -32,11 +32,14 @@
     .win-bar { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border-bottom: 1px solid #efeee9; background: #faf9f7; }
     .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .win-img { width: 100%; height: 340px; object-fit: cover; object-position: top; display: block; }
-    table.stat-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    table.stat-table th, table.stat-table td { padding: 10px 14px; text-align: right; border-bottom: 1px solid #e4e3dd; }
+    .stat-card { border: 1px solid #e4e3dd; border-radius: 14px; padding: 8px 20px; box-shadow: 0 1px 3px rgba(20,20,20,.05); }
+    table.stat-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+    table.stat-table th, table.stat-table td { padding: 14px 10px; text-align: right; border-bottom: 1px solid #e4e3dd; }
     table.stat-table th:first-child, table.stat-table td:first-child { text-align: left; }
+    table.stat-table tr:last-child td { border-bottom: none; }
     table.stat-table thead th { font-weight: 500; color: #141414; }
-    table.stat-table tbody td { color: #3a3a38; }
+    table.stat-table tbody td { color: #141414; font-size: 1.15rem; font-weight: 500; }
+    table.stat-table tbody td:first-child { color: #3a3a38; font-size: 0.9rem; font-weight: 400; }
     table.stat-table tfoot td { font-weight: 600; color: #141414; border-bottom: none; }
   </style>
 </head>
@@ -91,7 +94,7 @@
       <p class="label">What Google Search Console shows</p>
       <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The old window: 431 days. The new one: 55.</h2>
       <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Search Console only retains about 16 months of history, so the "before" period below is effectively everything available prior to the rebuild — March 21, 2025 through May 26, 2026. The rebuild went live May 27, 2026. That means the "after" period is under two months, compared against a "before" period nearly 8x longer.</p>
-      <div class="mt-8 overflow-x-auto">
+      <div class="stat-card mt-8 overflow-x-auto bg-panel">
         <table class="stat-table min-w-[480px]">
           <thead>
             <tr><th></th><th>Before<br><span class="mono text-[11px] text-muted">3/21/25 – 5/26/26 · 431 days</span></th><th>After<br><span class="mono text-[11px] text-muted">5/27/26 – 7/21/26 · 55 days</span></th></tr>
@@ -112,14 +115,14 @@
       <p class="label">Normalized for time</p>
       <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Not a fair comparison until you adjust for that.</h2>
       <p class="mt-4 max-w-2xl text-[1rem] text-ink2">Comparing 79 clicks against 1 click means little on its own if one period is 4x longer than the other — a longer window naturally accumulates more, regardless of what changed. So we normalized both periods to a daily rate instead.</p>
-      <div class="mt-8 overflow-x-auto">
+      <div class="stat-card mt-8 overflow-x-auto bg-bg">
         <table class="stat-table min-w-[480px]">
           <thead>
             <tr><th></th><th>Before (per day)</th><th>After (per day)</th><th>Multiplier</th></tr>
           </thead>
           <tbody>
-            <tr><td>Impressions</td><td>0.26</td><td>120.5</td><td class="text-accent font-medium">~468x</td></tr>
-            <tr><td>Clicks</td><td>0.002</td><td>1.44</td><td class="text-accent font-medium">~618x</td></tr>
+            <tr><td>Impressions</td><td>0.26</td><td>120.5</td><td class="text-accent font-semibold text-[1.25rem]">~468x</td></tr>
+            <tr><td>Clicks</td><td>0.002</td><td>1.44</td><td class="text-accent font-semibold text-[1.25rem]">~618x</td></tr>
           </tbody>
         </table>
       </div>
