@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How ChatGPT Actually Decides Who to Recommend — C5</title>
+  <meta name="description" content="More people are asking ChatGPT, Gemini, and Perplexity for a local recommendation instead of searching. Here's what these assistants actually pull from, and what you can check yourself today." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+    .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+    .pull-quote { border-left: 3px solid #bf5b2e; padding: 2px 0 2px 16px; margin-top: 12px; }
+    .pull-quote p { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #141414; line-height: 1.35; }
+    .pull-quote cite { display: block; margin-top: 6px; font-style: normal; font-size: 0.78rem; color: #76746e; }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="/contact.html" class="btn btn-dark">Get my free business audit</a>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-8 pb-12 sm:pt-10">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <a href="/guides.html" class="transition-colors hover:text-ink">Guides</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">AI search visibility</span>
+      </nav>
+      <p class="label mt-9">Guide</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">How ChatGPT actually decides who to recommend</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">It's not the same playbook as ranking in Google — some of it overlaps, some of it doesn't. Here's what's actually going on underneath the answer, and what you can check yourself today.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">A real shift, still early</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">More people are asking instead of searching.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">A growing share of people are skipping the search results page entirely and just asking an assistant directly — "who's the best [trade] near me." It's still a minority of overall search behavior today, but the share is growing every quarter. And unlike a results page with ten blue links to scroll through, the assistant usually just names one or two businesses. You're either in that answer, or you're invisible to that search entirely — there's no page two to be found on.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">What's actually happening underneath</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Related to Google, but not the same signals.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">Your reviews, and where they live</h3><p class="mt-2 text-[0.9rem] text-ink2">Assistants cross-reference review platforms, not just a star rating — the actual text of what people say, and how recently they said it.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">What your own site actually says</h3><p class="mt-2 text-[0.9rem] text-ink2">Specific, concrete facts — services offered, area served, how long you've operated, licensing — get cited. Vague marketing copy doesn't give an assistant anything to point to.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Third-party mentions</h3><p class="mt-2 text-[0.9rem] text-ink2">Directories, local write-ups, even forum threads on places like Reddit can get pulled in and cited as a source, whether or not you had any control over them.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Consistency across all of it</h3><p class="mt-2 text-[0.9rem] text-ink2">If your name, address, or phone number doesn't match across platforms, that inconsistency itself can read as a signal something's off.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">A real example</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">We've watched this play out in real time.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">One client went from not appearing at all to the #1 answer across three separate real customer questions, in about three weeks.</p>
+      <div class="pull-quote max-w-2xl">
+        <p class="text-[0.95rem]">"My pick for best overall. 5.0 rating in the current local results and based directly in Orange... uses its own installers, and lists a lifetime warranty."</p>
+        <cite>ChatGPT, answering "Who's the best frameless shower installer in Orange, CA?" — Sonshine Glass &amp; Mirror, #1</cite>
+      </div>
+      <a href="/services/ai-visibility.html#proof" class="lnk mt-5 inline-flex items-center gap-1">See the full result
+        <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">What you can do about it today, free</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">A few things worth checking yourself, no tool required.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">Read your own reviews, don't just count them</h3><p class="mt-2 text-[0.9rem] text-ink2">What people actually say matters more than the star average — that's what gets pulled into an answer.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Make sure your Google Business Profile is actually complete</h3><p class="mt-2 text-[0.9rem] text-ink2">It's one of the most heavily cited sources. <a href="/guides/google-business-profile.html" class="lnk">See the full checklist</a>.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Say the specific thing, not the vague thing</h3><p class="mt-2 text-[0.9rem] text-ink2">"Family-owned since 1998, licensed and insured, serving Orange County" gives an assistant something to cite. "Quality service you can trust" doesn't.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Just ask it yourself</h3><p class="mt-2 text-[0.9rem] text-ink2">Open ChatGPT and ask the exact question a real customer would ask. Whatever comes back is genuinely what's happening right now — no guessing required.</p></div>
+      </div>
+      <p class="mt-8 max-w-2xl text-[0.85rem] text-muted">Worth being upfront about: this is still a fast-moving, early space, and how much it matters depends on how much your own customers are actually using AI assistants to search. It's not a replacement for ranking well in Google — it's an additional place to show up, and increasingly, one people trust more than a page of ads.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
+        <div>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">See if you're in the answer right now.</h2>
+          <p class="mt-3 text-[1rem] text-white/70">We'll ask the exact questions your customers would ask and show you exactly what comes back — before you spend a dollar.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/contact.html" class="btn bg-cream text-ink hover:bg-white">Get my free business audit</a>
+          <a href="/services/ai-visibility.html" class="btn border border-white/30 text-white transition-colors hover:border-accent hover:text-accent">See the AI visibility service</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.85rem] text-muted">Other guides: <a href="/guides/google-business-profile.html" class="lnk">Google Business Profile</a>, <a href="/guides/google-search-console.html" class="lnk">Google Search Console</a>, <a href="/guides/google-angi-thumbtack.html" class="lnk">Google, Angi, Thumbtack</a>, <a href="/guides/website-builders.html" class="lnk">Website builders</a>, <a href="/guides/mobile-vs-desktop.html" class="lnk">Mobile vs. desktop</a>, <a href="/guides/ai-for-small-business.html" class="lnk">AI for small business</a>, <a href="/guides/crm-vs-spreadsheet.html" class="lnk">CRM vs. spreadsheet</a>.</p>
+      <p class="mt-4 text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

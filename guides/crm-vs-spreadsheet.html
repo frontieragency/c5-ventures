@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRM vs. Spreadsheet: What a Trade Business Actually Needs — C5</title>
+  <meta name="description" content="Spreadsheets work fine until they don't. How to tell you've outgrown one, and what to actually look for in a CRM built for a trade business." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+    .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="/contact.html" class="btn btn-dark">Get my free business audit</a>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-8 pb-12 sm:pt-10">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <a href="/guides.html" class="transition-colors hover:text-ink">Guides</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">CRM vs. spreadsheet</span>
+      </nav>
+      <p class="label mt-9">Guide</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">When a spreadsheet stops being enough</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">Most shops start on a spreadsheet or a shared doc, and for a while, that's genuinely fine. Here's how to tell when it isn't anymore, and what to actually look for once you're ready to move.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Where a spreadsheet actually works</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">It's not a bad tool. It's a tool with limits.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">One person tracking a handful of jobs, low volume, a single location — a spreadsheet is fast, free, and nobody has to learn new software. There's no shame in starting there, and plenty of well-run shops never need to leave it.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">The signs you've outgrown it</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The same few problems show up, over and over.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">Two people editing the same file</h3><p class="mt-2 text-[0.9rem] text-ink2">Version conflicts, overwritten changes, nobody's fully sure which tab is actually current.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Pricing scattered across texts and email</h3><p class="mt-2 text-[0.9rem] text-ink2">Vendor quotes live in a dozen different threads, and nobody can find the one from three weeks ago when it actually matters.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">No real visibility into the pipeline</h3><p class="mt-2 text-[0.9rem] text-ink2">Can't answer "what's our total open pipeline worth" or "what's our win rate" without hand-counting rows.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Information trapped in one person's head</h3><p class="mt-2 text-[0.9rem] text-ink2">Gate codes, who to ask for, what was said on the last call — none of it written down anywhere searchable.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">What to actually look for</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The parts that matter for a trade business specifically.</h2>
+      <div class="mt-8 grid gap-7 sm:grid-cols-2 max-w-none">
+        <div><h3 class="text-[1rem] font-medium text-ink">Multi-vendor pricing in one place</h3><p class="mt-2 text-[0.9rem] text-ink2">If you regularly request pricing from more than one supplier per job, this is usually the single biggest time-saver.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Proposals and invoices from the same record</h3><p class="mt-2 text-[0.9rem] text-ink2">Not a separate tool you have to re-enter the same numbers into by hand.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">A dashboard, not just a list</h3><p class="mt-2 text-[0.9rem] text-ink2">Pipeline value, win rate, average job size — the numbers you'd otherwise build a separate spreadsheet just to see.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Search that actually works</h3><p class="mt-2 text-[0.9rem] text-ink2">Jump straight to a job instead of scrolling a list — built for someone juggling forty open jobs at once, not four.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16 max-w-2xl">
+      <p class="label">Off-the-shelf vs. built for your process</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">The real tradeoff, honestly.</h2>
+      <p class="mt-4 text-[1rem] text-ink2">Off-the-shelf trade CRM software is faster to start and typically runs $100–500 a month — a real, legitimate option, especially if your process is already fairly standard. The tradeoff is you're bending your workflow to fit the software, and paying for it every month indefinitely. A custom-built CRM costs more upfront and takes longer to stand up, but it's built around your actual process instead of the other way around, and there's no subscription running in the background once it's done. Which one's right mostly depends on how close your process already is to "standard," and how many jobs you're running through it.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
+        <div>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">Tired of juggling a spreadsheet and a group text?</h2>
+          <p class="mt-3 text-[1rem] text-white/70">Tell us your trade, your average job value, and how many calls you think you're missing — we'll send back roughly what that's costing you, no pitch attached.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/contact.html" class="btn bg-cream text-ink hover:bg-white">Get my free business audit</a>
+          <a href="/services/crm.html" class="btn border border-white/30 text-white transition-colors hover:border-accent hover:text-accent">See the custom CRM</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.85rem] text-muted">Other guides: <a href="/guides/google-business-profile.html" class="lnk">Google Business Profile</a>, <a href="/guides/google-search-console.html" class="lnk">Google Search Console</a>, <a href="/guides/google-angi-thumbtack.html" class="lnk">Google, Angi, Thumbtack</a>, <a href="/guides/website-builders.html" class="lnk">Website builders</a>, <a href="/guides/mobile-vs-desktop.html" class="lnk">Mobile vs. desktop</a>, <a href="/guides/ai-for-small-business.html" class="lnk">AI for small business</a>, <a href="/guides/ai-search-visibility.html" class="lnk">AI search visibility</a>.</p>
+      <p class="mt-4 text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
