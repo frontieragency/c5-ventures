@@ -395,9 +395,9 @@
         </article>
 
         <!-- Sonshine Glass — third result, Custom CRM -->
-        <article id="work-crm" class="reveal scroll-mt-24 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-          <div class="win order-2 lg:order-1">
-            <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 text-[11px] text-muted">Custom CRM</span></div>
+        <article id="work-crm" class="reveal scroll-mt-24 grid items-center gap-8 lg:grid-cols-[3fr_2fr] lg:gap-12">
+          <div class="win order-2 lg:order-1 cursor-pointer" data-crm-video-open role="button" tabindex="0" aria-label="Expand the Custom CRM demo">
+            <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 text-[11px] text-muted">Custom CRM</span><span class="ml-auto flex items-center gap-1 text-[11px] text-muted"><svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none"><path d="M6 2H2v4M10 2h4v4M6 14H2v-4M10 14h4v-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Expand</span></div>
             <video class="block w-full" style="aspect-ratio:1600/1000" autoplay muted loop playsinline>
               <source src="/assets/video/crm-demo.mp4" type="video/mp4">
             </video>
@@ -940,6 +940,22 @@
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
       window.addEventListener('resize', () => { if (!modal.classList.contains('hidden')) fit(); });
     });
+
+    // Custom CRM demo video — expands into a larger on-page lightbox.
+    window.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('crmVideoModal');
+      if (!modal) return;
+      const video = document.getElementById('crmVideoModalVideo');
+      const open = () => { modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; video.currentTime = 0; video.play(); };
+      const close = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; video.pause(); };
+      document.querySelectorAll('[data-crm-video-open]').forEach((b) => {
+        b.addEventListener('click', open);
+        b.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      document.querySelectorAll('[data-crm-video-close]').forEach((b) => b.addEventListener('click', close));
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
+    });
   </script>
 
   <!-- Live-generator lightbox -->
@@ -951,6 +967,19 @@
       <div id="quoteModalSizer" class="relative w-full overflow-hidden">
         <iframe id="quoteModalFrame" data-src="https://frontieragency.github.io/roofing-quote-embed/" class="absolute left-0 top-0 border-0 bg-bg" style="transform-origin:top left" title="Instant roofing quote — live demo" loading="lazy"></iframe>
       </div>
+    </div>
+  </div>
+
+  <!-- Custom CRM demo — expanded lightbox -->
+  <div id="crmVideoModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-ink/80 p-2 sm:p-6" role="dialog" aria-modal="true" aria-label="Custom CRM demo">
+    <button type="button" data-crm-video-close aria-label="Close" class="fixed right-4 top-4 z-[110] grid h-10 w-10 place-items-center rounded-full bg-bg text-ink shadow-lg ring-1 ring-line transition hover:bg-panel">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <div class="win w-full max-w-[1400px]">
+      <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 text-[11px] text-muted">Custom CRM</span></div>
+      <video id="crmVideoModalVideo" class="block w-full" style="aspect-ratio:1600/1000" muted loop playsinline autoplay>
+        <source src="/assets/video/crm-demo.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </body>
