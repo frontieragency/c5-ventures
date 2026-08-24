@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — C5</title>
+  <meta name="description" content="Get your free business audit. Tell us your trade, your average job value, and how many calls you think you're missing — we'll send back roughly what that's costing you, no pitch attached." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="mailto:info@helloc5.com" class="hidden text-[0.9rem] text-ink2 transition-colors hover:text-ink sm:inline">info@helloc5.com</a>
+    </div>
+  </header>
+
+  <section class="border-b border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 pt-6 pb-2">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">Contact</span>
+      </nav>
+    </div>
+  </section>
+
+  <section class="bg-cream">
+    <div class="mx-auto max-w-content px-5 py-20 text-center">
+      <h1 class="display text-[2.4rem] text-ink sm:text-[3rem]">Get your free business audit.</h1>
+      <p class="mx-auto mt-4 max-w-xl text-[1.05rem] text-ink2">
+        Tell us your trade, your average job value, and how many calls you think you're missing. We'll send back roughly what that's costing you — from your own numbers, no pitch attached.
+      </p>
+      <form id="contactForm" action="https://formspree.io/f/xjgqbowj" method="POST" class="mx-auto mt-8 max-w-xl text-left">
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div class="sm:col-span-2">
+            <label class="sr-only" for="business">Business name</label>
+            <input id="business" name="business" type="text" required placeholder="Business name"
+                   class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+          </div>
+          <div>
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" required placeholder="you@company.com"
+                   class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+          </div>
+          <div>
+            <label class="sr-only" for="phone">Mobile phone</label>
+            <input id="phone" name="phone" type="tel" required inputmode="numeric"
+                   pattern="^\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}$" title="Please enter a 10-digit phone number"
+                   placeholder="(___) ___-____"
+                   class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+          </div>
+          <div>
+            <label class="sr-only" for="trade">Trade</label>
+            <input id="trade" name="trade" type="text" required placeholder="Your trade (e.g. HVAC)"
+                   class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+          </div>
+          <div>
+            <label class="sr-only" for="jobValue">Average job value</label>
+            <input id="jobValue" name="average_job_value" type="text" inputmode="numeric" required placeholder="Average job value ($)"
+                   class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+          </div>
+          <div>
+            <label class="sr-only" for="callsPerWeek">Calls per week</label>
+            <input id="callsPerWeek" name="calls_per_week" type="text" inputmode="numeric" required placeholder="Calls per week (roughly)"
+                   class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink placeholder:text-muted transition-colors focus:border-accent focus:outline-none" />
+          </div>
+          <div>
+            <label class="sr-only" for="missedPct">Estimated share of calls missed</label>
+            <select id="missedPct" name="missed_pct_estimate" required
+                    class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink transition-colors focus:border-accent focus:outline-none">
+              <option value="" disabled selected>Calls missed, roughly</option>
+              <option value="Not sure">Not sure</option>
+              <option value="Under 10%">Under 10%</option>
+              <option value="10–25%">10–25%</option>
+              <option value="25–50%">25–50%</option>
+              <option value="Over 50%">Over 50%</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="sr-only" for="whoAnswers">Who answers the phone now</label>
+            <select id="whoAnswers" name="who_answers_now" required
+                    class="w-full rounded-xl2 border border-line bg-bg px-4 py-3 text-[0.92rem] text-ink transition-colors focus:border-accent focus:outline-none">
+              <option value="" disabled selected>Who answers the phone now</option>
+              <option value="Me">Me</option>
+              <option value="An office/front-desk person">An office/front-desk person</option>
+              <option value="An answering service">An answering service</option>
+              <option value="No one / goes to voicemail">No one / goes to voicemail</option>
+            </select>
+          </div>
+        </div>
+        <div class="mt-4 flex items-start gap-2.5">
+          <input id="smsConsent" name="sms_consent" type="checkbox" required
+                 class="mt-1 h-4 w-4 shrink-0 rounded border-line text-accent focus:outline-none focus:ring-2 focus:ring-accent" />
+          <label for="smsConsent" class="text-[0.82rem] text-ink2">I agree to receive text messages from C5 about my business audit. Message and data rates may apply. Reply STOP to opt out.</label>
+        </div>
+        <input type="hidden" name="_subject" value="New business audit request — C5" />
+        <button type="submit" class="btn btn-dark mt-4 w-full px-5 py-3 sm:w-auto">Get my free business audit</button>
+      </form>
+      <p id="formMsg" class="mt-4 text-[0.9rem] text-ansigreen" hidden></p>
+      <p class="mt-4 text-[0.85rem] text-muted">Or email <a href="mailto:info@helloc5.com" class="lnk align-baseline">info@helloc5.com</a></p>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.85rem] text-muted"><a href="/about.html" class="lnk">About</a> &middot; <a href="/work.html" class="lnk">Our work</a> &middot; <a href="/services.html" class="lnk">Services</a></p>
+      <p class="mt-4 text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Contact form → Formspree (submits inline; emails info@helloc5.com)
+    const contactForm = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMsg');
+    if (contactForm) contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' },
+        });
+        if (res.ok) {
+          contactForm.hidden = true;
+          formMsg.hidden = false;
+          formMsg.className = 'mt-4 text-[0.95rem] text-ansigreen';
+          formMsg.textContent = "Thanks — we're putting your numbers together. Your business audit will land in your inbox soon.";
+        } else {
+          throw new Error('Form error');
+        }
+      } catch (err) {
+        btn.disabled = false; btn.textContent = original;
+        formMsg.hidden = false;
+        formMsg.className = 'mt-4 text-[0.9rem] text-ink2';
+        formMsg.innerHTML = 'Something went wrong — please email <a href="mailto:info@helloc5.com" class="lnk align-baseline">info@helloc5.com</a>.';
+      }
+    });
+  </script>
+
+</body>
+</html>

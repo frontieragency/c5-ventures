@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Visibility — C5 Services</title>
+  <meta name="description" content="Get recommended when people ask ChatGPT, Gemini, Google AI, or Perplexity who to hire. We track and improve the signals these assistants actually use to recommend local businesses." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23f5eee0'/%3E%3Ctext%20x='16'%20y='21.5'%20font-family='Inter,system-ui,Helvetica,Arial,sans-serif'%20font-size='15.5'%20font-weight='600'%20letter-spacing='-0.6'%20fill='%23141414'%20text-anchor='middle'%3EC5%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg: '#ffffff', cream: '#f5eee0', panel: '#f3f2ef', ink: '#141414', ink2: '#3a3a38', muted: '#76746e', line: '#e4e3dd', accent: '#bf5b2e', ansigreen: '#1f8a65' },
+      fontFamily: { serif: ['EB Garamond','Iowan Old Style','Georgia','serif'], sans: ['Inter','system-ui','Helvetica Neue','Arial','sans-serif'], mono: ['JetBrains Mono','ui-monospace','monospace'] },
+      maxWidth: { content: '1100px' }, borderRadius: { xl2: '14px' },
+    }}};
+  </script>
+  <style>
+    html { font-size: 15px; -webkit-font-smoothing: antialiased; }
+    body { color: #141414; line-height: 1.5; letter-spacing: -0.005em; }
+    .display { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; }
+    .label { font-size: 0.875rem; color: #76746e; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .lnk { color: #bf5b2e; font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border-radius: 9999px; font-weight: 500; font-size: 0.9rem; padding: .55rem 1.05rem; }
+    .btn-dark { background: #141414; color: #fff; }
+    .hero-bg { background: radial-gradient(120% 90% at 50% -10%, #f7efe0 0%, transparent 60%), radial-gradient(80% 60% at 18% 30%, #f3e7d6 0%, transparent 55%), linear-gradient(180deg, #f5f3ee 0%, #efeee9 100%); }
+    .win { background: #fff; border: 1px solid #e4e3dd; border-radius: 12px; overflow: hidden;
+           box-shadow: 0 1px 2px rgba(20,20,20,.04), 0 24px 60px -28px rgba(20,20,20,.28); }
+    .win-bar { display: flex; align-items: center; gap: 7px; padding: 9px 12px; border-bottom: 1px solid #efeee9; background: #faf9f7; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .pull-quote { border-left: 3px solid #bf5b2e; padding: 8px 0 8px 16px; margin-top: 12px; }
+    .pull-quote p { font-style: italic; color: #3a3a38; }
+    .pull-quote cite { display: block; margin-top: 6px; font-size: 0.78rem; color: #76746e; font-style: normal; }
+  </style>
+</head>
+<body class="bg-bg font-sans text-ink">
+
+  <header class="sticky top-0 z-50 bg-cream">
+    <div class="mx-auto flex max-w-content items-center justify-between px-5 py-3.5">
+      <a href="/" class="flex items-center text-lg font-semibold tracking-tight text-ink">C5</a>
+      <a href="/contact.html" class="btn btn-dark">Get my free business audit</a>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="mx-auto max-w-content px-5 pt-8 pb-12 sm:pt-10">
+      <nav class="mono text-[12px] text-muted" aria-label="Breadcrumb">
+        <a href="/" class="transition-colors hover:text-ink">Home</a>
+        <span class="mx-1.5">/</span>
+        <a href="/services.html" class="transition-colors hover:text-ink">Services</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">AI Visibility</span>
+      </nav>
+      <p class="label mt-9">Service</p>
+      <h1 class="display mt-3 max-w-2xl text-[2rem] text-ink sm:text-[2.7rem]">Get recommended by ChatGPT</h1>
+      <p class="mt-5 max-w-xl text-[1.05rem] text-ink2">More people are starting to ask ChatGPT, Gemini, Google AI, or Perplexity for a local recommendation instead of scrolling search results. If your business isn't in the answer, you're invisible to every one of those searches — no matter how good your actual work is.</p>
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+        <a href="/contact.html" class="btn btn-dark w-full min-w-[200px] sm:w-auto">Get my free business audit</a>
+        <a href="#proof" class="btn text-ink border border-line bg-bg w-full min-w-[200px] sm:w-auto">See the real result</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof" class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">Real result</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Three weeks ago, Sonshine Glass didn't come up at all.</h2>
+      <p class="mt-4 max-w-2xl text-[1rem] text-ink2">We asked ChatGPT the exact questions a real customer would ask. Here's what it says back today, across three separate parts of Sonshine's business:</p>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        <div class="win">
+          <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 text-[11px] text-muted">ChatGPT</span></div>
+          <div class="p-5">
+            <p class="text-[0.85rem] text-ink2">"Who's the best frameless shower installer in Orange, CA?"</p>
+            <div class="pull-quote">
+              <p class="text-[0.88rem]">"My pick for best overall. 5.0 rating in the current local results and based directly in Orange... Sonshine has been operating since 1977, uses its own installers, and lists a lifetime warranty."</p>
+              <cite>Sonshine Glass &amp; Mirror — #1</cite>
+            </div>
+          </div>
+        </div>
+        <div class="win">
+          <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 text-[11px] text-muted">ChatGPT</span></div>
+          <div class="p-5">
+            <p class="text-[0.85rem] text-ink2">"Best custom mirrors in Orange, CA?"</p>
+            <div class="pull-quote">
+              <p class="text-[0.88rem]">"Best overall pick. Based in Orange, 5.0 rating in the current local results, and does made-to-measure vanity mirrors, large wall/gym mirrors, frameless mirrors... served Orange County since 1977."</p>
+              <cite>Sonshine Glass &amp; Mirror — #1</cite>
+            </div>
+          </div>
+        </div>
+        <div class="win">
+          <div class="win-bar"><span class="dot bg-[#f0c1b4]"></span><span class="dot bg-[#f3e0b0]"></span><span class="dot bg-[#bfe3c8]"></span><span class="mono ml-2 text-[11px] text-muted">ChatGPT</span></div>
+          <div class="p-5">
+            <p class="text-[0.85rem] text-ink2">"Commercial storefront installation in Orange, CA?"</p>
+            <div class="pull-quote">
+              <p class="text-[0.88rem]">"Best overall for local storefront work and property managers. Based in Orange with a 5.0 rating... handles aluminum and frameless storefront systems, entrance systems, storefront doors/hardware."</p>
+              <cite>Sonshine Glass &amp; Mirror — #1</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-8 max-w-2xl text-[0.95rem] text-ink2">Three different searches, three different parts of the business, same answer: Sonshine, first. That's not a coincidence and it's not luck — it's the result of tracking and improving the specific signals these assistants actually use when they decide who to recommend.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">What's included</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">Not just a monthly screenshot.</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        <div><h3 class="text-[1rem] font-medium text-ink">Tracked across every major assistant</h3><p class="mt-2 text-[0.9rem] text-ink2">ChatGPT, Gemini, Google AI, and Perplexity — so you know exactly where you show up and where you're invisible, not just one platform's answer.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Benchmarked against real competitors</h3><p class="mt-2 text-[0.9rem] text-ink2">Not just "are you mentioned" — how you compare to the specific businesses that are getting recommended instead of you.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Source &amp; citation tracking</h3><p class="mt-2 text-[0.9rem] text-ink2">We track which sources these assistants actually pull from when they talk about you — reviews, directories, your own site, even Reddit threads — so we know exactly what to fix.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Tone, not just mentions</h3><p class="mt-2 text-[0.9rem] text-ink2">Being mentioned isn't automatically good. We check whether the tone is actually positive, and catch it early if something's dragging you down.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Connected to your real data</h3><p class="mt-2 text-[0.9rem] text-ink2">Wired into your existing analytics and search console, so we're working from real traffic and search behavior — not guessing.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">We fix it, not just report it</h3><p class="mt-2 text-[0.9rem] text-ink2">When we find a gap, we build and publish the fix directly — new content, technical changes to your site — not a to-do list handed back to you to figure out.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Your paid ads, tracked too</h3><p class="mt-2 text-[0.9rem] text-ink2">If you're running ads on Google or in ChatGPT, we track how those perform alongside your organic visibility — one picture, not two separate reports.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Plain-English reporting</h3><p class="mt-2 text-[0.9rem] text-ink2">Regular updates on what's working, what changed, and what we're doing about it next — not a dashboard you have to learn to read yourself.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-panel">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <p class="label">How it works</p>
+      <h2 class="display mt-3 text-[1.7rem] text-ink sm:text-[2.1rem]">We track the signals, then close the gaps.</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        <div><h3 class="text-[1rem] font-medium text-ink">Baseline</h3><p class="mt-2 text-[0.9rem] text-ink2">We run a real set of hard, specific queries across your services and every city you work in — not just the easy ones you'd already win — and score where you land: #1, top 3, mentioned, or not mentioned at all.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Close the gaps</h3><p class="mt-2 text-[0.9rem] text-ink2">Wherever you're weak or invisible, we fix the underlying signals — the same information these assistants pull from to decide who's actually credible and who to recommend.</p></div>
+        <div><h3 class="text-[1rem] font-medium text-ink">Track it over time</h3><p class="mt-2 text-[0.9rem] text-ink2">Across ChatGPT, Gemini, Google AI, and Perplexity — re-checked on a schedule, so you know it's holding, not just a one-time lucky answer.</p></div>
+      </div>
+      <p class="mt-6 max-w-2xl text-[0.85rem] text-muted">Worth being honest about: this is still an early, fast-moving space, and results vary by industry and how much AI-referred traffic actually reaches your market today. What we can promise is the tracking is real and the baseline is honest — no cherry-picked queries.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg">
+    <div class="mx-auto max-w-content px-5 py-16">
+      <div class="grid gap-8 rounded-xl2 p-8 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center" style="background:#0b2544;">
+        <div>
+          <h2 class="display text-[1.9rem] text-white sm:text-[2.4rem]">See if you're in the answer right now.</h2>
+          <p class="mt-3 text-[1rem] text-white/70">We'll ask the exact questions your customers would ask and show you exactly what comes back — before you spend a dollar.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/contact.html" class="btn bg-cream text-ink hover:bg-white">Get my free business audit</a>
+          <a href="/work.html" class="btn border border-white/30 text-white transition-colors hover:border-accent hover:text-accent">See our work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line bg-cream">
+    <div class="mx-auto max-w-content px-5 py-10 text-center">
+      <p class="text-[0.85rem] text-muted">Other services: <a href="/services/seo-site.html" class="lnk">SEO site</a>, <a href="/services/instant-quote-engine.html" class="lnk">Instant quote engine</a>, <a href="/services/front-desk.html" class="lnk">Front desk</a>, <a href="/services/lead-follow-up.html" class="lnk">Lead follow-up</a>, <a href="/services/booking.html" class="lnk">Booking</a>, <a href="/services/crm.html" class="lnk">Custom CRM</a>, <a href="/services/paid-diagnostic.html" class="lnk">Paid diagnostic</a>.</p>
+      <p class="mt-4 text-[0.8rem] text-muted">© 2026 C5 Holdings LLC.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
