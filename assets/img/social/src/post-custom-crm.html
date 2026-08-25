@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;450;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:#f5eee0; --ink:#141414; --ink2:#3a3a38;
+    --muted:#76746e; --accent:#bf5b2e; --line:#e4e3dd;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:1080px; height:1080px; }
+  body {
+    background:var(--cream); color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:100px;
+  }
+  .eyebrow {
+    font-size:20px; font-weight:450; color:var(--muted);
+    letter-spacing:.005em; margin-bottom:26px;
+  }
+  h1 {
+    font-family:'EB Garamond',Georgia,serif; font-weight:400;
+    font-size:82px; line-height:1.04; letter-spacing:-.012em;
+    text-wrap:balance; margin-bottom:34px;
+  }
+  p {
+    font-size:25px; line-height:1.52; color:var(--ink2); max-width:830px;
+  }
+  /* The five suppliers, as a request going out. Counted, because the count is
+     the whole point of the service. */
+  .fan { display:flex; align-items:center; gap:13px; margin-top:46px; flex-wrap:wrap; }
+  .fan .from {
+    font-family:'JetBrains Mono',monospace; font-size:17px; color:var(--muted);
+  }
+  .fan .arrow { color:var(--accent); font-size:22px; line-height:1; }
+  .chip {
+    font-family:'JetBrains Mono',monospace; font-size:17px;
+    padding:9px 15px; border:1px solid var(--line); border-radius:999px;
+    color:var(--ink2); background:rgba(255,255,255,.5);
+  }
+  footer {
+    position:absolute; left:100px; bottom:92px;
+    font-family:'JetBrains Mono',monospace; font-size:23px;
+  }
+  footer b { color:var(--accent); font-weight:500; }
+  footer span { color:var(--muted); }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Custom CRM</div>
+  <h1>Pricing a job took<br>five emails. Now it<br>takes one click.</h1>
+  <p>Every supplier gets the same spec, so the quotes that come back actually
+     compare. Lead to paid invoice in one place, built around how your shop
+     already works — and you own it. No monthly software fee.</p>
+  <div class="fan">
+    <span class="from">one request</span>
+    <span class="arrow">&rarr;</span>
+    <span class="chip">vendor 1</span>
+    <span class="chip">2</span>
+    <span class="chip">3</span>
+    <span class="chip">4</span>
+    <span class="chip">5</span>
+  </div>
+  <footer><b>buildingwithc5</b> <span>&middot; helloc5.com</span></footer>
+</body>
+</html>
