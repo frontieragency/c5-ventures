@@ -25,23 +25,14 @@
   }
   h1 {
     font-family:'EB Garamond',Georgia,serif; font-weight:400;
-    font-size:82px; line-height:1.04; letter-spacing:-.012em;
-    text-wrap:balance; margin-bottom:34px;
+    font-size:74px; line-height:1.08; letter-spacing:-.012em;
+    text-wrap:balance; margin-bottom:34px; max-width:850px;
   }
-  h1 em { font-style:italic; }
   p {
     font-size:25px; line-height:1.52; color:var(--ink2);
-    max-width:21ch; max-width:830px;
+    max-width:800px;
   }
-  /* The receipt: four assistants, one answer. Pulled straight from the page. */
-  .strip {
-    display:flex; gap:10px; margin-top:44px; flex-wrap:wrap;
-  }
-  .chip {
-    font-family:'JetBrains Mono',monospace; font-size:17px;
-    padding:9px 16px; border:1px solid var(--line); border-radius:999px;
-    color:var(--ink2); background:rgba(255,255,255,.5);
-  }
+  p + p { margin-top:20px; }
   footer {
     position:absolute; left:100px; bottom:92px;
     font-family:'JetBrains Mono',monospace; font-size:23px;
@@ -51,16 +42,10 @@
 </style>
 </head>
 <body>
-  <div class="eyebrow">AI visibility</div>
-  <h1>Three weeks ago,<br>ChatGPT had never<br>heard of them.</h1>
-  <p>Now it names them first — across three different searches, for three
-     different parts of the business.</p>
-  <div class="strip">
-    <span class="chip">ChatGPT</span>
-    <span class="chip">Gemini</span>
-    <span class="chip">Google AI</span>
-    <span class="chip">Perplexity</span>
-  </div>
+  <div class="eyebrow">The offer</div>
+  <h1>We've done this for them. We can do it for you.</h1>
+  <p>Didn't like your own answer when you asked? DM us your trade and your city.</p>
+  <p>We'll run the full check — ChatGPT, Gemini, Google AI, and Perplexity, what each one says about you, and who's getting named instead — and send it back this week. Free.</p>
   <footer><b>@buildingwithc5</b> <span>&middot; helloc5.com</span></footer>
 </body>
 </html>

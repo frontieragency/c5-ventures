@@ -17,30 +17,22 @@
     background:var(--cream); color:var(--ink);
     font-family:'Inter',system-ui,sans-serif;
     display:flex; flex-direction:column; justify-content:center;
-    padding:100px;
+    padding:100px; position:relative;
   }
   .eyebrow {
     font-size:20px; font-weight:450; color:var(--muted);
     letter-spacing:.005em; margin-bottom:26px;
   }
-  h1 {
-    font-family:'EB Garamond',Georgia,serif; font-weight:400;
-    font-size:82px; line-height:1.04; letter-spacing:-.012em;
-    text-wrap:balance; margin-bottom:34px;
+  /* The receipt itself — an unedited crop of the real ChatGPT answer, not a redesign of it. */
+  .shot-frame {
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    box-shadow:0 24px 60px -28px rgba(20,20,20,.28);
+    padding:22px; overflow:hidden;
   }
-  h1 em { font-style:italic; }
-  p {
-    font-size:25px; line-height:1.52; color:var(--ink2);
-    max-width:21ch; max-width:830px;
-  }
-  /* The receipt: four assistants, one answer. Pulled straight from the page. */
-  .strip {
-    display:flex; gap:10px; margin-top:44px; flex-wrap:wrap;
-  }
-  .chip {
-    font-family:'JetBrains Mono',monospace; font-size:17px;
-    padding:9px 16px; border:1px solid var(--line); border-radius:999px;
-    color:var(--ink2); background:rgba(255,255,255,.5);
+  .shot-frame img { display:block; width:100%; height:auto; border-radius:4px; }
+  .caption {
+    margin-top:28px; font-size:22px; line-height:1.5; color:var(--ink2);
+    max-width:800px;
   }
   footer {
     position:absolute; left:100px; bottom:92px;
@@ -51,16 +43,11 @@
 </style>
 </head>
 <body>
-  <div class="eyebrow">AI visibility</div>
-  <h1>Three weeks ago,<br>ChatGPT had never<br>heard of them.</h1>
-  <p>Now it names them first — across three different searches, for three
-     different parts of the business.</p>
-  <div class="strip">
-    <span class="chip">ChatGPT</span>
-    <span class="chip">Gemini</span>
-    <span class="chip">Google AI</span>
-    <span class="chip">Perplexity</span>
+  <div class="eyebrow">The real answer</div>
+  <div class="shot-frame">
+    <img src="screenshots/chatgpt-shower-crop.png" alt="ChatGPT's actual answer">
   </div>
+  <p class="caption">Asked live, screenshotted whole — not a mockup, not our copy in a nicer font.</p>
   <footer><b>@buildingwithc5</b> <span>&middot; helloc5.com</span></footer>
 </body>
 </html>

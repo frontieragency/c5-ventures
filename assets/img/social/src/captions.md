@@ -58,8 +58,8 @@ Go ask ChatGPT who it recommends for your service. Right now — it takes ten
 seconds, and it's usually the most uncomfortable ten seconds of the week.
 
 Didn't like the answer? DM us your trade and your city. We'll run the full check
-— all four assistants, what they say about you, and which competitors are getting
-named instead — and send it back this week. Free.
+— ChatGPT, Gemini, Google AI, and Perplexity, what each one says about you, and
+which competitors are getting named instead — and send it back this week. Free.
 
 And if it turns out you're already showing up fine, we'll tell you that. That's a
 real answer, and it costs you nothing either way.
