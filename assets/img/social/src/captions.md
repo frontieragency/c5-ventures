@@ -36,7 +36,14 @@ If you run a trade business in OC, go ask ChatGPT who it recommends for your
 service. Right now, it takes ten seconds. It's usually the most uncomfortable
 ten seconds of the week.
 
-helloc5.com
+Didn't like the answer? DM us your trade and your city. We'll run the full
+check — all four assistants, what they say about you, and which competitors are
+getting named instead — and send it back this week. Free.
+
+And if it turns out you're already showing up fine, we'll tell you that too.
+That's a real answer and it costs you nothing either way.
+
+DM @buildingwithc5 · helloc5.com
 
 #orangecounty #ocsmallbusiness #homeservices #contractorlife #glasscontractor
 #newportbeach #costamesa #smallbusinessowner #chatgpt #localseo
@@ -63,7 +70,12 @@ Built once, around how that shop already works — not a platform they had to
 bend themselves to fit. And they own it. No monthly software fee, no per-seat
 pricing, no "that's on our roadmap for Q3."
 
-helloc5.com
+If quoting a job at your shop still means retyping the same spec four or five
+times, that's the piece worth fixing first. DM us and we'll walk you through
+what this looks like running on a real pipeline — a working one, not a demo
+account with three fake customers in it.
+
+DM @buildingwithc5 · helloc5.com
 
 #orangecounty #ocsmallbusiness #homeservices #contractorlife #glasscontractor
 #smallbusinessowner #constructiontech #crm #anaheim #irvine
@@ -78,4 +90,16 @@ earns a follow. The CRM post is the one that converts a follower into a call, an
 it lands better once they already believe you can see something they can't.
 
 **The ten-second challenge is the whole hook.** Anyone who runs it and doesn't
-like the answer has just qualified themselves. Don't bury it.
+like the answer has just qualified themselves — which is exactly why the ask
+comes immediately after it, while they are still looking at the bad answer. A
+caption that ends on a domain makes them do the work of deciding what to do
+next; almost nobody does.
+
+**The ask is a DM, not a click.** Per [[12-go-to-market-plan]] §4, Instagram DMs
+sit outside TCPA and most of these owners run their own account, so a DM is both
+the lowest-friction reply and the channel already chosen for outreach. A link in
+a caption is not tappable on Instagram anyway.
+
+**"We'll tell you if you're fine" is doing real work.** It converts the ask from
+a pitch into a question with two honest outcomes, which is what makes it safe to
+answer. It also costs nothing: anyone who is genuinely fine was never a client.
