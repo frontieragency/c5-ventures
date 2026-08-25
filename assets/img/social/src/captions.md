@@ -4,9 +4,11 @@ Written for the local play in [[12-go-to-market-plan]] §4: the audience is Oran
 County trade owners, not a national B2B feed. Concrete work, no adjectives doing
 a verb's job, and an ask that lands while the reader is still uncomfortable.
 
-The client is unnamed on purpose — the CRM proof video had the name dropped
-(commit a7a086f). Sonshine is family, so naming them is a one-word change if the
-call goes the other way.
+Post 05 features a real Sonshine result (their actual ChatGPT rankings). Post 06
+does not — the CRM demo video runs on a demo account for a fictional company,
+Coast Window, with fabricated job names, vendors, and dollar amounts. Post 06's
+caption is written generally (a common shop problem, not "this happened to a
+real client") to match that. Don't imply otherwise in either caption.
 
 ---
 
@@ -73,18 +75,18 @@ DM @buildingwithc5 · helloc5.com
 
 ## Post 06 — Custom CRM
 
-Pricing one job used to take five separate emails.
+Pricing one job can mean five separate emails.
 
-Same job, five suppliers, five times typing out the same sizes and the same
-glass spec. Then waiting to see who came back cheapest — and hoping the quotes
-were describing the same thing. Because if one shop reads "tempered" and another
+Five suppliers, five times typing out the same sizes and the same glass spec.
+Then waiting to see who comes back cheapest — and hoping the quotes are
+describing the same thing. Because if one shop reads "tempered" and another
 reads "laminated," you're not comparing prices. You're comparing guesses.
 
-Now it's one click. Pick the suppliers, the request goes to all of them with
-identical wording, and the numbers that come back actually compare.
+The fix is one click. Pick the suppliers, the request goes out to all of them
+with identical wording, and the numbers that come back actually compare.
 
 Why that's worth more than the hour it saves: the gap between what a supplier
-charges you and what you quoted the customer is the whole margin on the job. If
+charges you and what you quote the customer is the whole margin on the job. If
 the quotes coming back aren't describing identical work, you're not choosing the
 cheapest supplier — you're guessing, on the one number that decides whether the
 job was worth doing.
@@ -93,16 +95,16 @@ The rest of it: every job tracked from first call to paid invoice, proposals and
 invoices generated from the same screen as the job, and a dashboard showing
 pipeline value and win rate without anyone building a spreadsheet on a Sunday.
 
-Built once, around how that shop already works — not a platform they had to bend
-themselves to fit. And they own it. No monthly software fee, no per-seat pricing,
+Built once, around how your shop already works — not a platform you have to bend
+yourself to fit. And you own it. No monthly software fee, no per-seat pricing,
 no "that's on our roadmap for Q3."
 
-We've done this for them, and we can do it for you.
+This is the same tool we'd build around your process, not a generic template
+with your logo dropped in.
 
 If quoting a job at your shop still means retyping the same spec four or five
-times, that's the piece worth fixing first. DM us and we'll walk you through what
-this looks like running on a real pipeline — a working one, not a demo account
-with three fake customers in it.
+times, that's the piece worth fixing first. DM us and we'll walk you through
+exactly what this looks like.
 
 DM @buildingwithc5 · helloc5.com
 
